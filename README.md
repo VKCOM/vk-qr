@@ -1,18 +1,18 @@
-# qr-code-generator
+# vk-qr
 
-![Node](https://img.shields.io/node/v/qr-code-generator.svg?style=flat-square)
-[![NPM](https://img.shields.io/npm/v/qr-code-generator.svg?style=flat-square)](https://www.npmjs.com/package/qr-code-generator)
-[![Travis](https://img.shields.io/travis/mobyman/qr-code-generator/master.svg?style=flat-square)](https://travis-ci.org/mobyman/qr-code-generator)
-[![David](https://img.shields.io/david/mobyman/qr-code-generator.svg?style=flat-square)](https://david-dm.org/mobyman/qr-code-generator)
-[![Coverage Status](https://img.shields.io/coveralls/mobyman/qr-code-generator.svg?style=flat-square)](https://coveralls.io/github/mobyman/qr-code-generator)
-[![NPM](https://img.shields.io/npm/dt/qr-code-generator.svg?style=flat-square)](https://www.npmjs.com/package/qr-code-generator)
+![Node](https://img.shields.io/node/v/vk-qr.svg?style=flat-square)
+[![NPM](https://img.shields.io/npm/v/vk-qr.svg?style=flat-square)](https://www.npmjs.com/package/vk-qr)
+[![Travis](https://img.shields.io/travis/vkcom/vk-qr/master.svg?style=flat-square)](https://travis-ci.org/vkcom/vk-qr)
+[![David](https://img.shields.io/david/vkcom/vk-qr.svg?style=flat-square)](https://david-dm.org/vkcom/vk-qr)
+[![Coverage Status](https://img.shields.io/coveralls/vkcom/vk-qr.svg?style=flat-square)](https://coveralls.io/github/vkcom/vk-qr)
+[![NPM](https://img.shields.io/npm/dt/vk-qr.svg?style=flat-square)](https://www.npmjs.com/package/vk-qr)
 
 > this is a description
 
 ### Usage
 
 ```js
-import qrCodeGenerator from 'qr-code-generator';
+import qrCodeGenerator from 'vk-qr';
 
 ```
 
@@ -20,11 +20,11 @@ import qrCodeGenerator from 'qr-code-generator';
 
 Install via [yarn](https://github.com/yarnpkg/yarn)
 
-	yarn add qr-code-generator (--dev)
+	yarn add vk-qr (--dev)
 
 or npm
 
-	npm install qr-code-generator (--save-dev)
+	npm install vk-qr (--save-dev)
 
 
 ### configuration
@@ -32,7 +32,7 @@ or npm
 You can pass in extra options as a configuration object (➕ required, ➖ optional, ✏️ default).
 
 ```js
-import qrCodeGenerator from 'qr-code-generator';
+import qrCodeGenerator from 'vk-qr';
 
 ```
 
@@ -53,16 +53,16 @@ qrCodeGenerator
 
 ### Examples
 
-See [`example`](example/script.js) folder or the [runkit](https://runkit.com/mobyman/qr-code-generator) example.
+See [`example`](example/script.js) folder or the [runkit](https://runkit.com/vkcom/vk-qr) example.
 
 ### Builds
 
-If you don't use a package manager, you can [access `qr-code-generator` via unpkg (CDN)](https://unpkg.com/qr-code-generator/), download the source, or point your package manager to the url.
+If you don't use a package manager, you can [access `vk-qr` via unpkg (CDN)](https://unpkg.com/vk-qr/), download the source, or point your package manager to the url.
 
-`qr-code-generator` is compiled as a collection of [CommonJS](http://webpack.github.io/docs/commonjs.html) modules & [ES2015 modules](http://www.2ality.com/2014/0
+`vk-qr` is compiled as a collection of [CommonJS](http://webpack.github.io/docs/commonjs.html) modules & [ES2015 modules](http://www.2ality.com/2014/0
   -9/es6-modules-final.html) for bundlers that support the `jsnext:main` or `module` field in package.json (Rollup, Webpack 2)
 
-The `qr-code-generator` package includes precompiled production and development [UMD](https://github.com/umdjs/umd) builds in the [`dist/umd` folder](https://unpkg.com/qr-code-generator/dist/umd/). They can be used directly without a bundler and are thus compatible with many popular JavaScript module loaders and environments. You can drop a UMD build as a [`<script>` tag](https://unpkg.com/qr-code-generator) on your page. The UMD builds make `qr-code-generator` available as a `window.qrCodeGenerator` global variable.
+The `vk-qr` package includes precompiled production and development [UMD](https://github.com/umdjs/umd) builds in the [`dist/umd` folder](https://unpkg.com/vk-qr/dist/umd/). They can be used directly without a bundler and are thus compatible with many popular JavaScript module loaders and environments. You can drop a UMD build as a [`<script>` tag](https://unpkg.com/vk-qr) on your page. The UMD builds make `vk-qr` available as a `window.qrCodeGenerator` global variable.
 
 ### License
 
