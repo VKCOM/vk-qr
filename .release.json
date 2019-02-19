@@ -1,0 +1,9 @@
+{
+  "src": {
+    "commitMessage": ":bookmark: v%s",
+    "tagName": "v%s",
+    "tagAnnotation": "Version %s"
+  },
+  "prereleaseId": "beta",
+  "changelogCommand": "git log --pretty=format:'* %s (%h)' v[REV_RANGE]"
+}

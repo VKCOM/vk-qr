@@ -1,0 +1,67 @@
+{
+  "name": "qr-code-generator",
+  "version": "0.0.0",
+  "description": "QR Code generator",
+  "main": "dist/es/index.js",
+  "browser": "dist/umd/qrCodeGenerator.js",
+  "module": "dist/es/index.js",
+  "jsxnext:main": "dist/es/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+
+    "prepublish": "npm run build",
+    "precommit": "npm run lint:test",
+    "prepush": "npm run lint:test",
+
+    "release": "release-it",
+
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+
+    "lint": "npm run lint:eslint",
+    "lint:eslint": "eslint src/*.js",
+
+    "test": "jest",
+    "test:coverage": "jest --coverage ",
+    "test:watch": "clear && jest --watch",
+
+    "lint:test": "npm run lint && npm run test:coverage",
+
+    "build": "npm run lint:test && npm run build:cjs && npm run build:es && npm run build:umd",
+    "build:watch": "clear && rimraf dist/cjs && cross-env BABEL_ENV=cjs babel -w src --out-dir dist/cjs",
+
+    "build:es": "rimraf dist/es && cross-env BABEL_ENV=es babel src --out-dir dist/es",
+    "build:cjs": "rimraf dist/cjs && cross-env BABEL_ENV=cjs babel src --out-dir dist/cjs",
+    "build:umd": "rimraf dist/umd && cross-env BABEL_ENV=es rollup -c & cross-env BABEL_ENV=es NODE_ENV=production rollup -c"
+
+  },
+  "keywords": [],
+  "author": "VK.com ()",
+  "license": "MIT",
+  "repository": "mobyman/qr-code-generator",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.24.1",
+    "coveralls": "^2.13.1",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.6.0",
+    "eslint-config-devine": "^1.7.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "jest": "^20.0.4",
+    "rimraf": "^2.6.1",
+    "release-it": "^2.8.5",
+    "husky": "^0.14.3",
+    "rollup": "^0.39.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-bundle-size": "^1.0.1",
+    "rollup-plugin-commonjs": "^8.2.0",
+    "rollup-plugin-uglify": "^2.0.1"
+  }
+}
