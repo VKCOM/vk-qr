@@ -1,15 +1,15 @@
-# Contributing to 'qr-code-generator'
+# Contributing to 'vk-qr'
 
 ## Support / Questions
 
-For **support or usage questions** like "How do I do X with qr-code-generator." and "My code doesn't work.", please search and ask on **StackOverflow** with a **'qr-code-generator' tag** first.
+For **support or usage questions** like "How do I do X with vk-qr." and "My code doesn't work.", please search and ask on **StackOverflow** with a **'vk-qr' tag** first.
 
 ## Bugs
 
 > The ideal GitHub issue (and even some feature requests) is not an issue, it's a PR with a failing test case.
 <br/> [@rauchg](https://twitter.com/rauchg/status/810589655532007424)
 
-**Before filing an issue please [search the issue tracker](https://github.com/mobyman/qr-code-generator/issues); your issue may have already been discussed or fixed in `master`.**
+**Before filing an issue please [search the issue tracker](https://github.com/vkcom/vk-qr/issues); your issue may have already been discussed or fixed in `master`.**
 
 **If you want your issue to get priority, submit it as a PR instead**
 
@@ -18,20 +18,20 @@ For **support or usage questions** like "How do I do X with qr-code-generator." 
 ## Feature / Enhancement Requests
 
 Feature or enhancement requests should be **submitted** in the
-[issue tracker](https://github.com/mobyman/qr-code-generator/issues), with a **description** (follow the template) of the expected behavior & use case, where they’ll remain until **approval** by the **lead maintainer(s) and/or enough interest** from the **community**.
+[issue tracker](https://github.com/vkcom/vk-qr/issues), with a **description** (follow the template) of the expected behavior & use case, where they’ll remain until **approval** by the **lead maintainer(s) and/or enough interest** from the **community**.
 
 You can **request** a feature by **writing a pull request**, but this is **no guarantee** it will be **merged**.
 
 ## 'help wanted' label
 
-There are issues marked with the **['help wanted'](https://github.com/mobyman/qr-code-generator/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)** label. <br/>This is a perfect start if you want to help out with the further development of qr-code-generator.
+There are issues marked with the **['help wanted'](https://github.com/vkcom/vk-qr/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)** label. <br/>This is a perfect start if you want to help out with the further development of vk-qr.
 
 ## Pull Requests (PR)
 
 In general, the contribution workflow looks like this:
 
 1. **Fork** the repo.
-2. **Clone** the repo. `git clone https://github.com/your-username/qr-code-generator.git`.
+2. **Clone** the repo. `git clone https://github.com/your-username/vk-qr.git`.
 3. Create a **new branch** based off the master branch, provide a **descriptive name** <br/>(ex. '**feat**-add-better-logging', '**bug**-removed-double-method', '**enh**-bumped-eslint')
 4. Before running the code you’ll need to **install** the **dependencies** (`npm install` or `yarn`).
 5. **Implement** your feature / bugfix (using the **watch scripts**), you should **only need to modify `/src`**. Don’t worry about regenerating the build folder `/dist`, it is **built** in the **prepublish** phase.
