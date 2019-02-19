@@ -1,5 +1,5 @@
 {
-  "name": "qr-code-generator",
+  "name": "vk-qr",
   "version": "1.0.0",
   "description": "QR Code generator",
   "main": "dist/es/index.js",
