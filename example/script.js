@@ -1,7 +1,6 @@
 import qr from '../dist/es';
-const text = "TEST";
+const text = 'TEST';
 
-var segs = qr.QrSegment.makeSegments(text);
-var qrSvg = qr.QrCode.encodeSegments(segs, qr.QrCode.Ecc.QUARTILE, 1, 40, -1, true).toSvgString();
+const qrSvg = qr.createQR(text, 256, 256, 'qr-code-class');
 
-console.log(qrSvg);
+document.body.innerHTML = qrSvg;

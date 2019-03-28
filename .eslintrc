@@ -1,3 +1,6 @@
 {
-  "extends": "devine"
+  "extends": "devine",
+  "rules": {
+    "quotes": [2, "single"]
+  }
 }
