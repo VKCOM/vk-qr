@@ -1,5 +1,6 @@
-"use strict";
+'use strict';
 /* eslint-disable */
+const DEFAULT_SIZE = 128;
 var qrcodegen = new function() {
 
   const multi = 1;
@@ -160,7 +161,15 @@ var qrcodegen = new function() {
       };
     };
 
-    this.toSvgString = function() {
+    this.toSvgString = function(width = DEFAULT_SIZE, height = DEFAULT_SIZE, className = '') {
+
+      if (typeof width !== 'number' || typeof height !== 'number') {
+        throw new Error('Size should be a number');
+      }
+
+      if (typeof className !== 'string') {
+        throw new Error('Classname should be a string');
+      }
 
       const _2 = 2 * multi;
       const _12_7 = 12.7 * multi;
@@ -250,13 +259,11 @@ var qrcodegen = new function() {
         '    <path fill="#FFF" d="M597.816744,251.493445 C601.198942,240.214758 597.816746,231.927083 581.719678,231.927083 L528.490512,231.927083 C514.956087,231.927083 508.716524,239.08642 505.332448,246.981031 C505.332448,246.981031 478.263599,312.960647 439.917002,355.818719 C427.510915,368.224806 421.871102,372.172112 415.10389,372.172112 C411.720753,372.172112 406.822917,368.224806 406.822917,356.947057 L406.822917,251.493445 C406.822917,237.95902 402.895137,231.927083 391.615512,231.927083 L307.969678,231.927083 C299.511836,231.927083 294.425223,238.208719 294.425223,244.162063 C294.425223,256.99245 313.597583,259.951287 315.573845,296.043086 L315.573845,374.428788 C315.573845,391.614583 312.470184,394.730425 305.702972,394.730425 C287.658011,394.730425 243.763595,328.456052 217.730151,252.620844 C212.628223,237.881107 207.511068,231.927083 193.907178,231.927083 L140.678012,231.927083 C125.469678,231.927083 122.427826,239.08642 122.427826,246.981031 C122.427826,261.079625 140.473725,331.006546 206.452402,423.489903 C250.437874,486.648674 312.410515,520.885417 368.803012,520.885417 C402.638134,520.885417 406.823845,513.28125 406.823845,500.183098 L406.823845,452.447917 C406.823845,437.239583 410.029185,434.204421 420.743703,434.204421 C428.638315,434.204421 442.172739,438.151727 473.753063,468.603713 C509.843923,504.694573 515.79398,520.885417 536.094678,520.885417 L589.323845,520.885417 C604.532178,520.885417 612.136345,513.28125 607.749619,498.274853 C602.949226,483.318593 585.717788,461.619053 562.853283,435.89599 C550.446258,421.234166 531.837128,405.444943 526.197316,397.548454 C518.302704,387.399043 520.558441,382.88663 526.197316,373.864619 C526.197316,373.864619 591.049532,282.508661 597.816744,251.493445 Z"/>' +
         '  </g>');
 
-      return '<?xml version="1.0" encoding="UTF-8"?>\n' +
-        '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n' +
-        '<svg version="1.1" viewBox="0 0 ' + (size * qrcodegen.incTileSize + qrcodegen.incTileSize) + ' ' + (size * qrcodegen.incTileSize + qrcodegen.incTileSize) + '" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n' +
-        '<g transform="translate(0,0)">\n' +
-        parts.join("\n") +
-        '</g>\n' +
-        '</svg>\n';
+      return `<svg version="1.1" viewBox="0 0 ${size * qrcodegen.incTileSize + qrcodegen.incTileSize} ${size * qrcodegen.incTileSize + qrcodegen.incTileSize}" width="${width}px" heigth="${height}px"${className ? ` class="${className}"` : ''} xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g transform="translate(0,0)">
+          ${parts.join('\n')}
+        </g>
+      </svg>`
     };
 
     /*---- Private helper methods for constructor: Drawing function modules ----*/
@@ -1003,6 +1010,21 @@ var qrcodegen = new function() {
     this.numCharCountBits = function(ver) {
       return ccbits[Math.floor((ver + 7) / 17)];
     };
+  }
+
+
+  /*---- Simple public API ----*/
+  /**
+   * @param {string} text - string string to encode wtih QR
+   * @param {number} width - svg element width
+   * @param {number} height - svg element height
+   * @param {string} className - svg element classname
+   * @return {string} svg element markup
+   */
+  this.createQR = (text, width = DEFAULT_SIZE, height = DEFAULT_SIZE, className = '') => {
+    const segs = this.QrSegment.makeSegments(text);
+    const svg = this.QrCode.encodeSegments(segs, this.QrCode.Ecc.QUARTILE, 1, 40, -1, true).toSvgString(width, height, className);
+    return svg;
   }
 
 
