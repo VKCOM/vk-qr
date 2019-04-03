@@ -16,7 +16,6 @@
   "scripts": {
 
     "prepublish": "npm run build",
-    "precommit": "npm run lint",
     "prepush": "npm run lint",
 
     "release": "release-it",
