@@ -1,7 +1,7 @@
 # vk-qr
 <div align="center">
-  <a href="https://github.com/VKCOM">
-    <img width="100" height="100" src="https://avatars3.githubusercontent.com/u/1478241?s=200&v=4">
+  <a href="https://github.com/VKCOM/vk-qr">
+    <img width="100" height="100" src="https://pp.userapi.com/c854128/v854128442/183a0/rtZx2fxUV4w.jpg">
   </a>
   <br>
   <br>
@@ -19,7 +19,7 @@
 import qrCodeGenerator from 'vk-qr';
 const text = 'TEST';
 
-const qrSvg = qr.createQR(text, 256, 256, 'qr-code-class');
+const qrSvg = qr.createQR(text, 256, 'qr-code-class');
 
 document.body.innerHTML = qrSvg;
 ```
