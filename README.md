@@ -16,7 +16,7 @@
 ### Usage
 
 ```js
-import qrCodeGenerator from 'vk-qr';
+import qr from 'vk-qr';
 const text = 'TEST';
 
 const qrSvg = qr.createQR(text, 256, 'qr-code-class');
