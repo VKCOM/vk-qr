@@ -7,9 +7,8 @@
   <br>
 
   [![npm][npm]][npm-url]
-  ![Node](https://img.shields.io/node/v/vk-qr.svg?style=flat-square)
-[![NPM](https://img.shields.io/npm/v/vk-qr.svg?style=flat-square)](https://www.npmjs.com/package/vk-qr)
-[![NPM](https://img.shields.io/npm/dt/vk-qr.svg?style=flat-square)](https://www.npmjs.com/package/vk-qr)
+  ![Node](https://img.shields.io/node/v/@vkontakte/vk-qr.svg)
+[![NPM](https://img.shields.io/npm/dt/@vkontakte/vk-qr.svg)](https://www.npmjs.com/package/vk-qr)
 
 </div>
 
@@ -18,8 +17,9 @@
 ```js
 import qr from '@vkontakte/vk-qr';
 const text = 'TEST';
+const isShowVkLogo = true;
 
-const qrSvg = qr.createQR(text, 256, 'qr-code-class');
+const qrSvg = qr.createQR(text, 256, 'qr-code-class', isShowVkLogo);
 
 document.body.innerHTML = qrSvg;
 ```
