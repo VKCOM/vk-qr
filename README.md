@@ -8,7 +8,7 @@
 
   [![npm][npm]][npm-url]
   ![Node](https://img.shields.io/node/v/@vkontakte/vk-qr.svg)
-[![NPM](https://img.shields.io/npm/dt/@vkontakte/vk-qr.svg)](https://www.npmjs.com/package/vk-qr)
+[![NPM](https://img.shields.io/npm/dt/@vkontakte/vk-qr.svg)](https://www.npmjs.com/package/@vkontakte/vk-qr)
 
 </div>
 
