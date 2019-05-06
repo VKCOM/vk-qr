@@ -28,11 +28,11 @@ document.body.innerHTML = qrSvg;
 
 Install via [yarn](https://github.com/yarnpkg/yarn)
 
-	yarn add vk-qr (--dev)
+	yarn add @vkontakte/vk-qr (--dev)
 
 or npm
 
-	npm install vk-qr (--save-dev)
+	npm install @vkontakte/vk-qr (--save-dev)
 
 
 ### Examples
