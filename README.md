@@ -18,8 +18,13 @@
 import qr from '@vkontakte/vk-qr';
 const text = 'TEST';
 const isShowVkLogo = true;
+const isShowBackground = true;
+const options = {
+  backgroundColor: '#ffffff',
+  foregroundColor: '#000000',
+};
 
-const qrSvg = qr.createQR(text, 256, 'qr-code-class', isShowVkLogo);
+const qrSvg = qr.createQR(text, 256, 'qr-code-class', isShowVkLogo, isShowBackground, options);
 
 document.body.innerHTML = qrSvg;
 ```

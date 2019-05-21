@@ -1,6 +1,6 @@
 {
   "name": "@vkontakte/vk-qr",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "QR Code generator",
   "main": "dist/es/index.js",
   "browser": "dist/umd/qrCodeGenerator.js",
