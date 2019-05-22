@@ -183,12 +183,11 @@ var qrcodegen = new function () {
       var qrSize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_SIZE;
       var className = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
       var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var isShowLogo = options.isShowLogo,
-          isShowBackground = options.isShowBackground;
 
+      var isShowLogo = options.isShowLogo || false;
       var logoData = options.logoData || false;
 
-      console.log(logoData);
+      var isShowBackground = options.isShowBackground || false;
       var backgroundColor = options.backgroundColor || BACKGROUND_DEFAULT_COLOR;
       var foregroundColor = options.foregroundColor || FOREGROUND_DEFAULT_COLOR;
 
@@ -234,13 +233,13 @@ var qrcodegen = new function () {
           var path = '';
           var selector = '';
           if (neighbors.current) {
-            selector = !neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b ? 'empty' : '';
+            selector = !selector && !neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b ? 'empty' : '';
             selector = !selector && neighbors.l && neighbors.r || neighbors.t && neighbors.b ? 'rect' : '';
             if (!selector) {
               selector += neighbors.l ? 'l' : neighbors.r ? 'r' : '';
               selector += neighbors.t ? 't' : neighbors.b ? 'b' : '';
               if (!selector) {
-                selector = 'rect';
+                selector = 'empty';
               }
             }
           } else {

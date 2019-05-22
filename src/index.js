@@ -178,10 +178,10 @@ var qrcodegen = new function() {
     };
 
     this.toSvgString = function(qrSize = DEFAULT_SIZE, className = '', options = {}) {
-      const {isShowLogo, isShowBackground} = options;
+      const isShowLogo = options.isShowLogo || false;
       const logoData = options.logoData || false;
 
-      console.log(logoData);
+      const isShowBackground = options.isShowBackground || false;
       const backgroundColor = options.backgroundColor || BACKGROUND_DEFAULT_COLOR;
       const foregroundColor = options.foregroundColor || FOREGROUND_DEFAULT_COLOR;
 
@@ -227,13 +227,13 @@ var qrcodegen = new function() {
           let path = '';
           let selector = '';
           if (neighbors.current) {
-            selector = !neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b ? 'empty' : '';
+            selector = !selector && !neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b ? 'empty' : '';
             selector = !selector && neighbors.l && neighbors.r || neighbors.t && neighbors.b ? 'rect' : '';
             if (!selector) {
               selector += neighbors.l ? 'l' : (neighbors.r ? 'r' : '');
               selector += neighbors.t ? 't' : (neighbors.b ? 'b' : '');
               if (!selector) {
-                selector = 'rect';
+                selector = 'empty';
               }
             }
           } else {
