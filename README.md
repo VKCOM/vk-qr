@@ -1,7 +1,7 @@
 # vk-qr
 <div align="center">
   <a href="https://github.com/VKCOM/vk-qr">
-    <img width="100" height="100" src="https://pp.userapi.com/c854128/v854128442/183a0/rtZx2fxUV4w.jpg">
+    <img width="100" height="100" src="https://pp.userapi.com/c851220/v851220335/125ec2/RB-gm_NGv9c.jpg">
   </a>
   <br>
   <br>
@@ -18,10 +18,11 @@
 import qr from '@vkontakte/vk-qr';
 const text = 'TEST';
 const options = {
-  isShowVkLogo: true,
-  isShowBackground: true,
-  backgroundColor: '#ffffff',
-  foregroundColor: '#000000',
+  isShowLogo: true, // show logo in center
+  logoData: false, // logo data in base64
+  isShowBackground: true, // show qr-background 
+  backgroundColor: '#ffffff', // qr-code background color
+  foregroundColor: '#000000', // qr-code color
 };
 
 const qrSvg = qr.createQR(text, 256, 'qr-code-class', options);
