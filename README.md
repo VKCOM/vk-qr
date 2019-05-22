@@ -17,14 +17,14 @@
 ```js
 import qr from '@vkontakte/vk-qr';
 const text = 'TEST';
-const isShowVkLogo = true;
-const isShowBackground = true;
 const options = {
+  isShowVkLogo: true,
+  isShowBackground: true,
   backgroundColor: '#ffffff',
   foregroundColor: '#000000',
 };
 
-const qrSvg = qr.createQR(text, 256, 'qr-code-class', isShowVkLogo, isShowBackground, options);
+const qrSvg = qr.createQR(text, 256, 'qr-code-class', options);
 
 document.body.innerHTML = qrSvg;
 ```

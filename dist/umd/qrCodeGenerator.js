@@ -12,9 +12,9 @@ var qrcodegen = new function () {
 
   var multi = 1;
   var SMALL_QR_SIZE = 25;
-  var QR_SIZE_PIXELS = 256;
   var BACKGROUND_DEFAULT_COLOR = '#000';
   var FOREGROUND_DEFAULT_COLOR = '#F00';
+  var BACKGROUND_RADIUS = 33;
 
   /*---- QR Code symbol class ----*/
   this.qrBorder = 7;
@@ -113,7 +113,7 @@ var qrcodegen = new function () {
     // for white or true for black. The top left corner has the coordinates (x=0, y=0).
     // If the given coordinates are out of bounds, then false (white) is returned.
     this.getPixel = function (x, y) {
-      var withLogo = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      var isShowVkLogo = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
 
       if (x < qrcodegen.qrBorder && y < qrcodegen.qrBorder) {
@@ -128,7 +128,7 @@ var qrcodegen = new function () {
         return false;
       }
 
-      if (withLogo) {
+      if (isShowVkLogo) {
         var imageTiles = qrcodegen.qrBorder + 2;
         if (size <= SMALL_QR_SIZE) {
           imageTiles--;
@@ -169,22 +169,22 @@ var qrcodegen = new function () {
       }
     };
 
-    this.getNeighbors = function (x, y, withLogo) {
+    this.getNeighbors = function (x, y, isShowVkLogo) {
       return {
-        l: this.getPixel(x - 1, y, withLogo),
-        r: this.getPixel(x + 1, y, withLogo),
-        t: this.getPixel(x, y - 1, withLogo),
-        b: this.getPixel(x, y + 1, withLogo),
-        current: this.getPixel(x, y, withLogo)
+        l: this.getPixel(x - 1, y, isShowVkLogo),
+        r: this.getPixel(x + 1, y, isShowVkLogo),
+        t: this.getPixel(x, y - 1, isShowVkLogo),
+        b: this.getPixel(x, y + 1, isShowVkLogo),
+        current: this.getPixel(x, y, isShowVkLogo)
       };
     };
 
     this.toSvgString = function () {
       var qrSize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_SIZE;
       var className = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-      var withLogo = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-      var withBackground = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
-      var options = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var isShowVkLogo = options.isShowVkLogo,
+          isShowBackground = options.isShowBackground;
 
       var backgroundColor = options.backgroundColor || BACKGROUND_DEFAULT_COLOR;
       var foregroundColor = options.foregroundColor || FOREGROUND_DEFAULT_COLOR;
@@ -227,36 +227,27 @@ var qrcodegen = new function () {
           xCoord = x + leftPadding;
           leftPadding += qrcodegen.tileSize;
           yCoord = y + topPadding;
-          var neighbors = this.getNeighbors(x, y, withLogo);
+          var neighbors = this.getNeighbors(x, y, isShowVkLogo);
           var path = '';
+          var selector = '';
           if (neighbors.current) {
-            if (!neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b) {
-              path = '<use xlink:href="#empty">';
-            } else if (neighbors.l && neighbors.r || neighbors.t && neighbors.b) {
-              path = '<use xlink:href="#rect">';
-            } else {
-              var selector = '';
+            selector = !neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b ? 'empty' : '';
+            selector = !selector && neighbors.l && neighbors.r || neighbors.t && neighbors.b ? 'rect' : '';
+            if (!selector) {
               selector += neighbors.l ? 'l' : neighbors.r ? 'r' : '';
               selector += neighbors.t ? 't' : neighbors.b ? 'b' : '';
               if (!selector) {
-                path = '<use xlink:href="#rect">';
+                selector = 'rect';
               }
-              path = '<use xlink:href="#' + selector + '"/>';
             }
           } else {
-            if (neighbors.l && neighbors.t && this.getPixel(x - 1, y - 1, withLogo)) {
-              path = '<use xlink:href="#n_lt" />';
-            }
-            if (neighbors.l && neighbors.b && this.getPixel(x - 1, y + 1, withLogo)) {
-              path = '<use xlink:href="#n_lb" />';
-            }
-            if (neighbors.r && neighbors.t && this.getPixel(x + 1, y - 1, withLogo)) {
-              path = '<use xlink:href="#n_rt" />';
-            }
-            if (neighbors.r && neighbors.b && this.getPixel(x + 1, y + 1, withLogo)) {
-              path = '<use xlink:href="#n_rb" />';
-            }
+            selector = !selector && neighbors.l && neighbors.t && this.getPixel(x - 1, y - 1, isShowVkLogo) ? 'n_lt' : '';
+            selector = !selector && neighbors.l && neighbors.b && this.getPixel(x - 1, y + 1, isShowVkLogo) ? 'n_lb' : '';
+            selector = !selector && neighbors.r && neighbors.t && this.getPixel(x + 1, y - 1, isShowVkLogo) ? 'n_rt' : '';
+            selector = !selector && neighbors.r && neighbors.b && this.getPixel(x + 1, y + 1, isShowVkLogo) ? 'n_rb' : '';
           }
+
+          path = '<use xlink:href="#' + selector + '"/>';
           parts.push('<g transform="translate(' + xCoord + ',' + yCoord + ')">' + path + '</g>');
         }
         topPadding += qrcodegen.tileSize;
@@ -273,7 +264,7 @@ var qrcodegen = new function () {
       parts.push('<path fill-rule="evenodd" transform="translate(0,0)" d="M600.001786,457.329333 L600.001786,242.658167 C600.001786,147.372368 587.039517,124.122784 581.464617,118.535383 C575.877216,112.960483 552.627632,99.9982143 457.329333,99.9982143 L242.670667,99.9982143 C147.372368,99.9982143 124.122784,112.960483 118.547883,118.535383 C112.972983,124.122784 99.9982143,147.372368 99.9982143,242.658167 L99.9982143,457.329333 C99.9982143,552.627632 112.972983,575.877216 118.547883,581.464617 C124.122784,587.027017 147.372368,600.001786 242.670667,600.001786 L457.329333,600.001786 C552.627632,600.001786 575.877216,587.027017 581.464617,581.464617 C587.039517,575.877216 600.001786,552.627632 600.001786,457.329333 Z M457.329333,0 C653.338333,0 700,46.6616668 700,242.658167 C700,438.667167 700,261.332833 700,457.329333 C700,653.338333 653.338333,700 457.329333,700 C261.332833,700 438.667167,700 242.670667,700 C46.6616668,700 0,653.338333 0,457.329333 C0,261.332833 0,352.118712 0,242.658167 C0,46.6616668 46.6616668,0 242.670667,0 C438.667167,0 261.332833,0 457.329333,0 Z M395.996667,200 C480.004166,200 500,220.008332 500,303.990835 C500,387.998334 500,312.001666 500,395.996667 C500,479.991668 480.004166,500 395.996667,500 C312.001666,500 387.998334,500 304.003333,500 C220.008332,500 200,479.991668 200,395.996667 C200,312.001666 200,350.906061 200,303.990835 C200,220.008332 220.008332,200 304.003333,200 C387.998334,200 312.001666,200 395.996667,200 Z" fill="' + foregroundColor + '"/>');
       parts.push('<path fill-rule="evenodd" transform="translate(' + pointPosition + ',0)" d="M600.001786,457.329333 L600.001786,242.658167 C600.001786,147.372368 587.039517,124.122784 581.464617,118.535383 C575.877216,112.960483 552.627632,99.9982143 457.329333,99.9982143 L242.670667,99.9982143 C147.372368,99.9982143 124.122784,112.960483 118.547883,118.535383 C112.972983,124.122784 99.9982143,147.372368 99.9982143,242.658167 L99.9982143,457.329333 C99.9982143,552.627632 112.972983,575.877216 118.547883,581.464617 C124.122784,587.027017 147.372368,600.001786 242.670667,600.001786 L457.329333,600.001786 C552.627632,600.001786 575.877216,587.027017 581.464617,581.464617 C587.039517,575.877216 600.001786,552.627632 600.001786,457.329333 Z M457.329333,0 C653.338333,0 700,46.6616668 700,242.658167 C700,438.667167 700,261.332833 700,457.329333 C700,653.338333 653.338333,700 457.329333,700 C261.332833,700 438.667167,700 242.670667,700 C46.6616668,700 0,653.338333 0,457.329333 C0,261.332833 0,352.118712 0,242.658167 C0,46.6616668 46.6616668,0 242.670667,0 C438.667167,0 261.332833,0 457.329333,0 Z M395.996667,200 C480.004166,200 500,220.008332 500,303.990835 C500,387.998334 500,312.001666 500,395.996667 C500,479.991668 480.004166,500 395.996667,500 C312.001666,500 387.998334,500 304.003333,500 C220.008332,500 200,479.991668 200,395.996667 C200,312.001666 200,350.906061 200,303.990835 C200,220.008332 220.008332,200 304.003333,200 C387.998334,200 312.001666,200 395.996667,200 Z" fill="' + foregroundColor + '"/>');
       parts.push('<path fill-rule="evenodd" transform="translate(0,' + pointPosition + ')" d="M600.001786,457.329333 L600.001786,242.658167 C600.001786,147.372368 587.039517,124.122784 581.464617,118.535383 C575.877216,112.960483 552.627632,99.9982143 457.329333,99.9982143 L242.670667,99.9982143 C147.372368,99.9982143 124.122784,112.960483 118.547883,118.535383 C112.972983,124.122784 99.9982143,147.372368 99.9982143,242.658167 L99.9982143,457.329333 C99.9982143,552.627632 112.972983,575.877216 118.547883,581.464617 C124.122784,587.027017 147.372368,600.001786 242.670667,600.001786 L457.329333,600.001786 C552.627632,600.001786 575.877216,587.027017 581.464617,581.464617 C587.039517,575.877216 600.001786,552.627632 600.001786,457.329333 Z M457.329333,0 C653.338333,0 700,46.6616668 700,242.658167 C700,438.667167 700,261.332833 700,457.329333 C700,653.338333 653.338333,700 457.329333,700 C261.332833,700 438.667167,700 242.670667,700 C46.6616668,700 0,653.338333 0,457.329333 C0,261.332833 0,352.118712 0,242.658167 C0,46.6616668 46.6616668,0 242.670667,0 C438.667167,0 261.332833,0 457.329333,0 Z M395.996667,200 C480.004166,200 500,220.008332 500,303.990835 C500,387.998334 500,312.001666 500,395.996667 C500,479.991668 480.004166,500 395.996667,500 C312.001666,500 387.998334,500 304.003333,500 C220.008332,500 200,479.991668 200,395.996667 C200,312.001666 200,350.906061 200,303.990835 C200,220.008332 220.008332,200 304.003333,200 C387.998334,200 312.001666,200 395.996667,200 Z" fill="' + foregroundColor + '"/>');
-      if (withLogo) {
+      if (isShowVkLogo) {
         parts.push('<g style="width: 750px; height: 750px;" fill="none" fill-rule="evenodd" transform="translate(' + position + ',' + position + ') ' + scale + '">\n\' +\n          \'  <path fill="#4680C2" d="M253.066667,0 C457.466667,0 272.533333,0 476.933333,0 C681.333333,0 730,48.6666667 730,253.066667 C730,457.466667 730,272.533333 730,476.933333 C730,681.333333 681.333333,730 476.933333,730 C272.533333,730 457.466667,730 253.066667,730 C48.6666667,730 0,681.333333 0,476.933333 C0,272.533333 0,367.206459 0,253.066667 C0,48.6666667 48.6666667,0 253.066667,0 Z"/>\n\' +\n          \'    <path fill="#FFF" d="M597.816744,251.493445 C601.198942,240.214758 597.816746,231.927083 581.719678,231.927083 L528.490512,231.927083 C514.956087,231.927083 508.716524,239.08642 505.332448,246.981031 C505.332448,246.981031 478.263599,312.960647 439.917002,355.818719 C427.510915,368.224806 421.871102,372.172112 415.10389,372.172112 C411.720753,372.172112 406.822917,368.224806 406.822917,356.947057 L406.822917,251.493445 C406.822917,237.95902 402.895137,231.927083 391.615512,231.927083 L307.969678,231.927083 C299.511836,231.927083 294.425223,238.208719 294.425223,244.162063 C294.425223,256.99245 313.597583,259.951287 315.573845,296.043086 L315.573845,374.428788 C315.573845,391.614583 312.470184,394.730425 305.702972,394.730425 C287.658011,394.730425 243.763595,328.456052 217.730151,252.620844 C212.628223,237.881107 207.511068,231.927083 193.907178,231.927083 L140.678012,231.927083 C125.469678,231.927083 122.427826,239.08642 122.427826,246.981031 C122.427826,261.079625 140.473725,331.006546 206.452402,423.489903 C250.437874,486.648674 312.410515,520.885417 368.803012,520.885417 C402.638134,520.885417 406.823845,513.28125 406.823845,500.183098 L406.823845,452.447917 C406.823845,437.239583 410.029185,434.204421 420.743703,434.204421 C428.638315,434.204421 442.172739,438.151727 473.753063,468.603713 C509.843923,504.694573 515.79398,520.885417 536.094678,520.885417 L589.323845,520.885417 C604.532178,520.885417 612.136345,513.28125 607.749619,498.274853 C602.949226,483.318593 585.717788,461.619053 562.853283,435.89599 C550.446258,421.234166 531.837128,405.444943 526.197316,397.548454 C518.302704,387.399043 520.558441,382.88663 526.197316,373.864619 C526.197316,373.864619 591.049532,282.508661 597.816744,251.493445 Z"/>\' +\n          \'  </g>');
       }
 
@@ -281,8 +272,8 @@ var qrcodegen = new function () {
       var qrBackground = '';
       var qrTransform = 'translate(25,25)';
 
-      if (withBackground) {
-        var padding = pixelSize / QR_SIZE_PIXELS * 33;
+      if (isShowBackground) {
+        var padding = pixelSize / qrSize * BACKGROUND_RADIUS;
         var radius = Math.ceil(pixelSize / 7.11); // 7.11111111 = 256px/36px radius
         qrBackground = '<rect x="0" width="' + pixelSize + '" height="' + pixelSize + '" rx="' + radius + '" fill="' + backgroundColor + '"/>';
         qrTransform = 'translate(' + padding + ', ' + padding + ') scale(0.756972112)';
@@ -291,7 +282,7 @@ var qrcodegen = new function () {
       var oneSide = 'M0,0 L66,0 C' + _84_7 + ',-3.44940413e-15 ' + _100 + ',15.2223185 ' + _100 + ',34 L' + _100 + ',66 C' + _100 + ',' + _84_7 + ' ' + _84_7 + ',' + _100 + ' 66,' + _100 + ' L0,' + _100 + ' L0,0 Z';
       var twoSides = 'M0,0 L' + _100 + ',0 L' + _100 + ',66 C' + _100 + ',' + _84_7 + ' ' + _84_7 + ',' + _100 + ' 66,' + _100 + ' L0,' + _100 + ' L0,0 Z';
 
-      return '<svg version="1.1" viewBox="0 0 ' + pixelSize + ' ' + pixelSize + '" width="' + qrSize + 'px" height="' + qrSize + 'px"' + (className ? ' class="' + className + '"' : '') + ' xml:space="preserve" xmlns="http://www.w3.org/2000/svg">\n        <defs>\n            <rect id="rect" width="100" height="100" fill="' + foregroundColor + '"/>\n            <path id="empty" d="M0,' + _28_6 + 'v' + _42_9 + 'C0,' + _87_3 + ',' + _12_8 + ',' + _100 + ',' + _28_6 + ',' + _100 + 'h' + _42_9 + 'c' + _15_9 + ',0,' + _28_6 + '-' + _12_8 + ',' + _28_6 + '-' + _28_6 + 'V' + _28_6 + 'C' + _100 + ',' + _12_7 + ',' + _87_2 + ',0,' + _71_4 + ',0H' + _28_6 + ' C' + _12_8 + ',0,0,' + _12_8 + ',0,' + _28_6 + 'z" fill="' + foregroundColor + '"/>\n            <path id="b" xmlns="http://www.w3.org/2000/svg" d="' + oneSide + '" transform="rotate(-90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="r" xmlns="http://www.w3.org/2000/svg" d="' + oneSide + '" transform="rotate(-180 50 50)" fill="' + foregroundColor + '"/>\n            <path id="l" xmlns="http://www.w3.org/2000/svg" d="' + oneSide + '" fill="' + foregroundColor + '"/>\n            <path id="t" xmlns="http://www.w3.org/2000/svg" d="' + oneSide + '" transform="rotate(90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="l" xmlns="http://www.w3.org/2000/svg" d="' + twoSides + '" transform="rotate(-90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="lt" xmlns="http://www.w3.org/2000/svg" d="' + twoSides + '" fill="' + foregroundColor + '"/>\n            <path id="lb" xmlns="http://www.w3.org/2000/svg" d="' + twoSides + '" transform="rotate(-90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="rb" xmlns="http://www.w3.org/2000/svg" d="' + twoSides + '" transform="rotate(-180 50 50)" fill="' + foregroundColor + '"/>\n            <path id="rt" xmlns="http://www.w3.org/2000/svg" d="' + twoSides + '" transform="rotate(90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="n_lt" d="M' + _30_5 + ',' + _2 + 'V0H0v' + _30_5 + 'h' + _2 + 'C' + _2 + ',' + _14_7 + ',' + _14_8 + ',' + _2 + ',' + _30_5 + ',' + _2 + 'z" fill="' + foregroundColor + '"/>\n            <path id="n_lb" d="M' + _2 + ',' + _69_5 + 'H0V' + _100 + 'h' + _30_5 + 'v-' + _2 + 'C' + _14_7 + ',' + _98 + ',' + _2 + ',' + _85_2 + ',' + _2 + ',' + _69_5 + 'z" fill="' + foregroundColor + '"/>\n            <path id="n_rt" d="M' + _98 + ',' + _30_5 + 'h' + _2 + 'V0H' + _69_5 + 'v' + _2 + 'C' + _85_3 + ',' + _2 + ',' + _98 + ',' + _14_8 + ',' + _98 + ',' + _30_5 + 'z" fill="' + foregroundColor + '"/>\n            <path id="n_rb" d="M' + _69_5 + ',' + _98 + 'v' + _2 + 'H' + _100 + 'V' + _69_5 + 'h-' + _2 + 'C' + _98 + ',' + _85_3 + ',' + _85_2 + ',' + _98 + ',' + _69_5 + ',' + _98 + 'z" fill="' + foregroundColor + '"/>\n        </defs>\n        ' + qrBackground + '\n        <g transform="' + qrTransform + '">\n          ' + parts.join('\n') + '\n        </g>\n      </svg>';
+      return '<svg version="1.1" viewBox="0 0 ' + pixelSize + ' ' + pixelSize + '" width="' + qrSize + 'px" height="' + qrSize + 'px"' + (className ? ' class="' + className + '"' : '') + ' xml:space="preserve" xmlns="http://www.w3.org/2000/svg">\n        <defs>\n            <rect id="rect" width="100" height="100" fill="' + foregroundColor + '"/>\n            <path id="empty" d="M0,' + _28_6 + 'v' + _42_9 + 'C0,' + _87_3 + ',' + _12_8 + ',' + _100 + ',' + _28_6 + ',' + _100 + 'h' + _42_9 + 'c' + _15_9 + ',0,' + _28_6 + '-' + _12_8 + ',' + _28_6 + '-' + _28_6 + 'V' + _28_6 + 'C' + _100 + ',' + _12_7 + ',' + _87_2 + ',0,' + _71_4 + ',0H' + _28_6 + ' C' + _12_8 + ',0,0,' + _12_8 + ',0,' + _28_6 + 'z" fill="' + foregroundColor + '"/>\n            <path id="b" d="' + oneSide + '" transform="rotate(-90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="r" d="' + oneSide + '" transform="rotate(-180 50 50)" fill="' + foregroundColor + '"/>\n            <path id="l" d="' + oneSide + '" fill="' + foregroundColor + '"/>\n            <path id="t" d="' + oneSide + '" transform="rotate(90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="l" d="' + twoSides + '" transform="rotate(-90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="lt" d="' + twoSides + '" fill="' + foregroundColor + '"/>\n            <path id="lb" d="' + twoSides + '" transform="rotate(-90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="rb" d="' + twoSides + '" transform="rotate(-180 50 50)" fill="' + foregroundColor + '"/>\n            <path id="rt" d="' + twoSides + '" transform="rotate(90 50 50)" fill="' + foregroundColor + '"/>\n            <path id="n_lt" d="M' + _30_5 + ',' + _2 + 'V0H0v' + _30_5 + 'h' + _2 + 'C' + _2 + ',' + _14_7 + ',' + _14_8 + ',' + _2 + ',' + _30_5 + ',' + _2 + 'z" fill="' + foregroundColor + '"/>\n            <path id="n_lb" d="M' + _2 + ',' + _69_5 + 'H0V' + _100 + 'h' + _30_5 + 'v-' + _2 + 'C' + _14_7 + ',' + _98 + ',' + _2 + ',' + _85_2 + ',' + _2 + ',' + _69_5 + 'z" fill="' + foregroundColor + '"/>\n            <path id="n_rt" d="M' + _98 + ',' + _30_5 + 'h' + _2 + 'V0H' + _69_5 + 'v' + _2 + 'C' + _85_3 + ',' + _2 + ',' + _98 + ',' + _14_8 + ',' + _98 + ',' + _30_5 + 'z" fill="' + foregroundColor + '"/>\n            <path id="n_rb" d="M' + _69_5 + ',' + _98 + 'v' + _2 + 'H' + _100 + 'V' + _69_5 + 'h-' + _2 + 'C' + _98 + ',' + _85_3 + ',' + _85_2 + ',' + _98 + ',' + _69_5 + ',' + _98 + 'z" fill="' + foregroundColor + '"/>\n        </defs>\n        ' + qrBackground + '\n        <g transform="' + qrTransform + '">\n          ' + parts.join('\n') + '\n        </g>\n      </svg>';
     };
 
     /*---- Private helper methods for constructor: Drawing function modules ----*/
@@ -957,20 +948,20 @@ var qrcodegen = new function () {
    * @param {string} text - string string to encode wtih QR
    * @param {number} qrSize - svg element size
    * @param {string} className - svg element classname
-   * @param {boolean} withLogo - show VK logo in center
-   * @param {boolean} withBackground
    * @param {object} options
+   *  {boolean} isShowVkLogo - show VK logo in center
+   *  {boolean} isShowBackground
+   *  {string} foregroundColor
+   *  {string} backgroundColor
    * @return {string} svg element markup
    */
   this.createQR = function (text) {
     var qrSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_SIZE;
     var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
-    var withLogo = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
-    var withBackground = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
-    var options = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : {};
+    var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
 
     var segs = _this.QrSegment.makeSegments(text);
-    var svg = _this.QrCode.encodeSegments(segs, _this.QrCode.Ecc.QUARTILE, 1, 40, -1, true).toSvgString(qrSize, className, withLogo, withBackground, options);
+    var svg = _this.QrCode.encodeSegments(segs, _this.QrCode.Ecc.QUARTILE, 1, 40, -1, true).toSvgString(qrSize, className, options);
     return svg;
   };
 
