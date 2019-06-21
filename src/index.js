@@ -188,7 +188,6 @@ var qrcodegen = new function() {
       const logoColor = options.logoColor || LOGO_DEFAULT_COLOR;
       const suffix = options.suffix || 0;
 
-      console.debug(logoColor, 'logocolor');
       if (typeof qrSize !== 'number') {
         throw new Error('Size should be a number');
       }
