@@ -276,7 +276,7 @@ var qrcodegen = new function () {
         if (!logoData) {
           parts.push('<use style="width: 750px; height: 750px;" fill="none" fill-rule="evenodd" transform="translate(' + position + ',' + position + ') ' + scale + '" xlink:href="#vk_logo-' + suffix + '"/>');
         } else {
-          parts.push('<image style="width: 750px; height: 750px;" transform="translate(' + position + ',' + position + ') ' + scale + '" href="' + logoData + '-' + suffix + '" />');
+          parts.push('<image style="width: 750px; height: 750px;" transform="translate(' + position + ',' + position + ') ' + scale + '" xlink:href="' + logoData + '" />');
         }
       }
 
