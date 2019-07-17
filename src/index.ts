@@ -23,6 +23,7 @@ function createQR(text: string, options?: QrOptions): string;
 
 /**
  * Legacy interface
+ * @deprecated
  * @param text String to encode
  * @param qrSize Size of QR code
  * @param className SVG element class name

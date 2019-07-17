@@ -19,14 +19,14 @@ export declare type QrOptions = {
      */
     isShowBackground?: boolean;
     /**
-     * QR code HEX color
-     */
-    foregroundColor?: string;
-    /**
      * QR code background HEX color. Works if `isShowBackground` is enabled.
      * @default "#ffffff"
      */
     backgroundColor?: string;
+    /**
+     * QR code HEX color
+     */
+    foregroundColor?: string;
     /**
      * Color of logo
      * @default "#000000"
