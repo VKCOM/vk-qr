@@ -12,9 +12,6 @@
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=4.0.0"
-  },
   "scripts": {
     "test": "jest",
     "watch": "rollup -c -w",

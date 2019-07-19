@@ -2,7 +2,7 @@
 
 [<img width="150" height="150" src="https://pp.userapi.com/c851220/v851220335/125ec2/RB-gm_NGv9c.jpg">](https://github.com/VKCOM/vk-qr)
 
-[![npm][npm-shield]][npm-url] ![Node][node-version-shield] [![NPM][npm-downloads-shield]][npm-url]
+[![npm][npm-shield]][npm-url] [![NPM][npm-downloads-shield]][npm-url] [![Build Status](https://travis-ci.org/VKCOM/vk-qr.svg?branch=master)](https://travis-ci.org/VKCOM/vk-qr)
 
 </div>
 
@@ -46,18 +46,18 @@ generatedSvgCode = vkQr.createQR(text[, qrOptions]);
 
 ### Parameters
 
-- `text` _required_  
+- `text` _required_
   String to generate a QR code
 
-- `options` _optional_  
+- `options` _optional_
   An options object containing any custom settings that you want to apply to the generated QR code. The possible options are:
 
-  - `qrSize`: Size of QR code.  
+  - `qrSize`: Size of QR code.
     Default is 128
 
   - `className`: Class name of root SVG element
 
-  - `isShowLogo`: Show VK logo in center of QR code  
+  - `isShowLogo`: Show VK logo in center of QR code
     Default is false
 
   - `isShowBackground`: Show QR background. Default is false
@@ -82,5 +82,4 @@ The code is available under the [MIT](LICENSE) license.
 
 [npm-shield]: https://img.shields.io/npm/v/@vkontakte/vk-qr.svg
 [npm-url]: https://npmjs.com/package/@vkontakte/vk-qr
-[node-version-shield]: https://img.shields.io/node/v/@vkontakte/vk-qr.svg
 [npm-downloads-shield]: https://img.shields.io/npm/dt/@vkontakte/vk-qr.svg
