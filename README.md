@@ -1,58 +1,86 @@
-# vk-qr
 <div align="center">
-  <a href="https://github.com/VKCOM/vk-qr">
-    <img width="100" height="100" src="https://pp.userapi.com/c851220/v851220335/125ec2/RB-gm_NGv9c.jpg">
-  </a>
-  <br>
-  <br>
 
-  [![npm][npm]][npm-url]
-  ![Node](https://img.shields.io/node/v/@vkontakte/vk-qr.svg)
-[![NPM](https://img.shields.io/npm/dt/@vkontakte/vk-qr.svg)](https://www.npmjs.com/package/@vkontakte/vk-qr)
+[<img width="150" height="150" src="https://pp.userapi.com/c851220/v851220335/125ec2/RB-gm_NGv9c.jpg">](https://github.com/VKCOM/vk-qr)
+
+[![npm][npm-shield]][npm-url] ![Node][node-version-shield] [![NPM][npm-downloads-shield]][npm-url]
 
 </div>
 
-### Usage
+# VK-QR
 
-```js
-import qr from '@vkontakte/vk-qr';
-const text = 'TEST';
-const options = {
-  isShowLogo: true, // show logo in center
-  logoData: false, // logo data in base64
-  isShowBackground: true, // show qr-background 
-  backgroundColor: '#ffffff', // qr-code background color
-  foregroundColor: '#000000', // qr-code color
-};
+JavaScript library for generating SVG code of VK-style QR codes.
 
-const qrSvg = qr.createQR(text, 256, 'qr-code-class', options);
+## Usage
 
-document.body.innerHTML = qrSvg;
+Install via yarn
+
 ```
-
-### Installation
-
-Install via [yarn](https://github.com/yarnpkg/yarn)
-
-	yarn add @vkontakte/vk-qr (--dev)
+yarn add @vkontakte/vk-qr
+```
 
 or npm
 
-	npm install @vkontakte/vk-qr (--save-dev)
+```
+npm install @vkontakte/vk-qr
+```
 
+And use in your code
 
-### Examples
+```js
+import vkQr from '@vkontakte/vk-qr';
 
-See [`example`](example/script.js) folder.
+// Returns SVG code of generated 256x256 QR code with VK logo
+const qrSvg = vkQr.createQR('Text to encode', {
+  qrSize: 256,
+  isShowLogo: true
+});
+```
 
-### License
+## API Reference
+
+### Syntax
+
+```js
+generatedSvgCode = vkQr.createQR(text[, qrOptions]);
+```
+
+### Parameters
+
+- `text` _required_  
+  String to generate a QR code
+
+- `options` _optional_  
+  An options object containing any custom settings that you want to apply to the generated QR code. The possible options are:
+
+  - `qrSize`: Size of QR code.  
+    Default is 128
+
+  - `className`: Class name of root SVG element
+
+  - `isShowLogo`: Show VK logo in center of QR code  
+    Default is false
+
+  - `isShowBackground`: Show QR background. Default is false
+
+  - `backgroundColor`: QR code background HEX color. Works if `isShowBackground` is enabled. Default is "#ffffff"
+
+  - `foregroundColor`: QR code HEX color
+
+  - `logoColor`: Color of logo. Default is "#000000"
+
+  - `logoData`: Reference to logo as a reference IRI
+
+  - `suffix`: SVG elements id postfix
+
+### Return value
+
+A string with SVG code.
+
+## License
 
 The code is available under the [MIT](LICENSE) license.
 
-### Misc
-
-This module was created using [generator-module-boilerplate](https://github.com/duivvv/generator-module-boilerplate).
-
-
-[npm]: https://img.shields.io/npm/v/@vkontakte/vk-qr.svg
+[npm-shield]: https://img.shields.io/npm/v/@vkontakte/vk-qr.svg
 [npm-url]: https://npmjs.com/package/@vkontakte/vk-qr
+[node-version-shield]: https://img.shields.io/node/v/@vkontakte/vk-qr.svg
+[npm-downloads-shield]: https://img.shields.io/npm/dt/@vkontakte/vk-qr.svg
