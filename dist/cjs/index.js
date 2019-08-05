@@ -180,7 +180,7 @@ var convertSegmentsToSvgString = function (qrCode, options) {
     parts.push("<use fill-rule=\"evenodd\" transform=\"translate(0," + pointPosition + ")\" xlink:href=\"#point-" + options.suffix + "\"/>");
     if (options.isShowLogo) {
         if (!options.logoData) {
-            parts.push("\n        <use style=\"width: 750px; height: 750px;\" \n          fill=\"none\" \n          fill-rule=\"evenodd\" \n          transform=\"translate(" + position + "," + position + ") " + scale + "\" xlink:href=\"#vk_logo-" + options.suffix + "\"\n        />\n      ");
+            parts.push("\n        <use style=\"width: 750px; height: 750px;\" width=\"750\" height=\"750\" \n          fill=\"none\" \n          fill-rule=\"evenodd\" \n          transform=\"translate(" + position + "," + position + ") " + scale + "\" xlink:href=\"#vk_logo-" + options.suffix + "\"\n        />\n      ");
         }
         else {
             parts.push("\n        <image \n          style=\"width: 750px; height: 750px;\" width=\"750\" height=\"750\" \n          transform=\"translate(" + position + "," + position + ") " + scale + "\" \n          xlink:href=\"" + options.logoData + "\" \n        />\n      ");
