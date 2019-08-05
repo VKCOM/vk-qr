@@ -26942,6 +26942,8 @@ exports[`Generation QR with custom logo color: toMatchXmlSnapshot 1`] = `
               \\"name\\": \\"use\\",
               \\"attributes\\": {
                 \\"style\\": \\"width: 750px; height: 750px;\\",
+                \\"width\\": \\"750\\",
+                \\"height\\": \\"750\\",
                 \\"fill\\": \\"none\\",
                 \\"fill-rule\\": \\"evenodd\\",
                 \\"transform\\": \\"translate(1046,1046) \\",
@@ -38022,6 +38024,8 @@ exports[`Generation QR with showed logo: toMatchXmlSnapshot 1`] = `
               \\"name\\": \\"use\\",
               \\"attributes\\": {
                 \\"style\\": \\"width: 750px; height: 750px;\\",
+                \\"width\\": \\"750\\",
+                \\"height\\": \\"750\\",
                 \\"fill\\": \\"none\\",
                 \\"fill-rule\\": \\"evenodd\\",
                 \\"transform\\": \\"translate(1046,1046) \\",

@@ -179,7 +179,7 @@ export const convertSegmentsToSvgString = (qrCode: QrCode, options: Required<QrO
   if (options.isShowLogo) {
     if (!options.logoData) {
       parts.push(`
-        <use style="width: 750px; height: 750px;" 
+        <use style="width: 750px; height: 750px;" width="750" height="750" 
           fill="none" 
           fill-rule="evenodd" 
           transform="translate(${position},${position}) ${scale}" xlink:href="#vk_logo-${options.suffix}"
