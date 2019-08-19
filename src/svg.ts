@@ -188,6 +188,7 @@ export const convertSegmentsToSvgString = (qrCode: QrCode, options: Required<QrO
     } else {
       parts.push(`
         <image 
+          preserveAspectRatio="xMidYMid slice" clip-path="url(#logo-mask-${options.suffix})"
           style="width: 750px; height: 750px;" width="750" height="750" 
           transform="translate(${position},${position}) ${scale}" 
           xlink:href="${options.logoData}" 
@@ -313,6 +314,9 @@ C602.949226,483.318593 585.717788,461.619053 562.853283,435.89599 C550.446258,42
 526.197316,373.864619 C526.197316,373.864619 591.049532,282.508661 597.816744,251.493445 Z"
         />
       </g>
+      <clipPath id="logo-mask-${options.suffix}">
+        <rect x="0" y="0" width="750" height="750" />
+      </clipPath>
     </defs>
 
     ${qrBackground}
