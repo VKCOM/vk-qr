@@ -1,6 +1,6 @@
 {
   "name": "@vkontakte/vk-qr",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "QR Code generator",
   "main": "dist/cjs/index.js",
   "browser": "dist/umd/qrCodeGenerator.js",
@@ -62,9 +62,7 @@
     "rollup-plugin-uglify": "^6.0.2",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3",
-    "xml-js": "^1.6.11"
-  },
-  "dependencies": {
+    "xml-js": "^1.6.11",
     "request": "^2.88.0"
   }
 }
