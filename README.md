@@ -71,6 +71,8 @@ generatedSvgCode = vkQr.createQR(text[, qrOptions]);
   - `logoData`: Reference to logo as a reference IRI
 
   - `suffix`: SVG elements id postfix
+  
+  - `ecc`: ECC level in range [0-3] (0 - low, 3 - high)
 
 ### Return value
 

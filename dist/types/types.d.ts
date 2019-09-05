@@ -40,4 +40,8 @@ export declare type QrOptions = {
      * SVG elements id postfix
      */
     suffix?: string;
+    /**
+     * ECC Level
+     */
+    ecc?: number;
 };

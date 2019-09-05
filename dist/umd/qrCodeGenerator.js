@@ -1155,6 +1155,13 @@
                 : qrSizeOrOptions, className: typeof qrSizeOrOptions === 'object' && qrSizeOrOptions !== null && typeof qrSizeOrOptions.className === 'string'
                 ? qrSizeOrOptions.className
                 : classNameLegacy });
+        // ECC levels mapping
+        var eccLevels = [
+            QrCode.Ecc.LOW,
+            QrCode.Ecc.MEDIUM,
+            QrCode.Ecc.QUARTILE,
+            QrCode.Ecc.HIGH
+        ];
         // Fallback undefined options
         var fallbackOptions = {
             qrSize: typeof options.qrSize === 'number' ? options.qrSize : DEFAULT_SIZE,
@@ -1165,11 +1172,12 @@
             backgroundColor: typeof options.backgroundColor === 'string' ? options.backgroundColor : BACKGROUND_COLOR_DEFAULT,
             logoColor: typeof options.logoColor === 'string' ? options.logoColor : LOGO_COLOR_DEFAULT,
             suffix: options.suffix ? options.suffix.toString() : '0',
-            logoData: typeof options.logoData === 'string' ? options.logoData : null
+            logoData: typeof options.logoData === 'string' ? options.logoData : null,
+            ecc: (typeof options.ecc === 'number' && eccLevels[options.ecc] ? options.ecc : 3),
         };
         // Code generation
         var segments = QrSegment.makeSegments(text);
-        var qrCode = QrCode.encodeSegments(segments, QrCode.Ecc.QUARTILE, 1, 40, -1, true);
+        var qrCode = QrCode.encodeSegments(segments, eccLevels[fallbackOptions.ecc], 1, 40, -1, true);
         var svgCode = convertSegmentsToSvgString(qrCode, fallbackOptions);
         return svgCode;
     }

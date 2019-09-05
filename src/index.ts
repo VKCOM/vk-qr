@@ -1,6 +1,7 @@
 import { convertSegmentsToSvgString } from './svg';
 import { QrSegment, QrCode } from './qr';
 import { QrOptions } from './types';
+import Ecc = QrCode.Ecc;
 
 /** Default width and height of QR code */
 const DEFAULT_SIZE = 128;
@@ -58,6 +59,14 @@ function createQR(
         : classNameLegacy
   };
 
+  // ECC levels mapping
+  const eccLevels = [
+    QrCode.Ecc.LOW,
+    QrCode.Ecc.MEDIUM,
+    QrCode.Ecc.QUARTILE,
+    QrCode.Ecc.HIGH
+  ];
+
   // Fallback undefined options
   const fallbackOptions: Required<QrOptions> = {
     qrSize: typeof options.qrSize === 'number' ? options.qrSize : DEFAULT_SIZE,
@@ -68,12 +77,13 @@ function createQR(
     backgroundColor: typeof options.backgroundColor === 'string' ? options.backgroundColor : BACKGROUND_COLOR_DEFAULT,
     logoColor: typeof options.logoColor === 'string' ? options.logoColor : LOGO_COLOR_DEFAULT,
     suffix: options.suffix ? options.suffix.toString() : '0',
-    logoData: typeof options.logoData === 'string' ? options.logoData : null
+    logoData: typeof options.logoData === 'string' ? options.logoData : null,
+    ecc: (typeof options.ecc === 'number' && eccLevels[options.ecc] ? options.ecc : 3),
   };
 
   // Code generation
   const segments: QrSegment[] = QrSegment.makeSegments(text);
-  const qrCode: QrCode = QrCode.encodeSegments(segments, QrCode.Ecc.QUARTILE, 1, 40, -1, true);
+  const qrCode: QrCode = QrCode.encodeSegments(segments, eccLevels[fallbackOptions.ecc], 1, 40, -1, true);
   const svgCode = convertSegmentsToSvgString(qrCode, fallbackOptions);
 
   return svgCode;
