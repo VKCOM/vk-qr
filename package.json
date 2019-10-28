@@ -20,7 +20,8 @@
     "release": "release-it",
     "lint": "eslint src/*.ts",
     "prepublish": "npm run build",
-    "prepush": "npm run lint"
+    "prepush": "npm run lint",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "VK.com",
