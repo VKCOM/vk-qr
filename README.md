@@ -66,7 +66,7 @@ generatedSvgCode = vkQr.createQR(text[, qrOptions]);
 
   - `foregroundColor`: QR code HEX color
 
-  - `logoColor`: Color of logo. Default is "#000000"
+  - `logoColor`: Color of logo. Default is "#4680c2"
 
   - `logoData`: Reference to logo as a reference IRI
 
