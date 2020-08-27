@@ -35,7 +35,7 @@ export type QrOptions = {
 
   /**
    * Color of logo
-   * @default "#000000"
+   * @default "#4680c2"
    */
   logoColor?: string;
 
