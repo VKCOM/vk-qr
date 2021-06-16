@@ -1,13 +1,13 @@
 {
   "name": "@vkontakte/vk-qr",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "QR Code generator",
   "main": "dist/cjs/index.js",
   "browser": "dist/umd/qrCodeGenerator.js",
   "module": "dist/es/index.js",
   "jsxnext:main": "dist/es/index.js",
   "umdName": "qrCodeGenerator",
-  "type": "dist/types/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist",
     "src"
@@ -17,11 +17,9 @@
     "watch": "rollup -c -w",
     "build": "rimraf dist && NODE_ENV=production rollup -c",
     "build:types": "rimraf dist/types && tsc src/index.ts",
-    "release": "release-it",
     "lint": "eslint src/*.ts",
-    "prepublish": "npm run build",
-    "prepush": "npm run lint",
-    "prepublishOnly": "npm run build"
+    "size": "size-limit",
+    "prepublish": "npm run build"
   },
   "keywords": [],
   "author": "VK.com",
@@ -37,6 +35,7 @@
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
+    "@size-limit/preset-small-lib": "^4.12.0",
     "@types/jest": "^24.0.15",
     "@types/prettier": "^1.16.4",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
@@ -61,8 +60,20 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript2": "^0.22.0",
     "rollup-plugin-uglify": "^6.0.2",
+    "size-limit": "^4.12.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3",
     "xml-js": "^1.6.11"
-  }
+  },
+  "size-limit": [
+    {
+      "path": "dist/cjs/index.js"
+    },
+    {
+      "path": "dist/es/index.js"
+    },
+    {
+      "path": "dist/umd/qrCodeGenerator.js"
+    }
+  ]
 }
