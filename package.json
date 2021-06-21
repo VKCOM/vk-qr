@@ -19,7 +19,7 @@
     "build:types": "rimraf dist/types && tsc src/index.ts",
     "lint": "eslint src/*.ts",
     "size": "size-limit",
-    "prepublish": "npm run build"
+    "prepublish": "yarn build"
   },
   "keywords": [],
   "author": "VK.com",

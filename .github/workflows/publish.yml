@@ -28,7 +28,7 @@ jobs:
           node-version: 12
           registry-url: 'https://registry.npmjs.org'
 
-      - run: yarn install --frozen-lockfile --ignore-scripts
+      - run: yarn install --frozen-lockfile
       - run: yarn lint
       - run: yarn test
       - run: yarn version --new-version ${{ github.event.inputs.version }} --no-commit-hooks
