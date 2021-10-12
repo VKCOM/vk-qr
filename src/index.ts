@@ -13,7 +13,7 @@ const BACKGROUND_COLOR_DEFAULT = '#ffffff';
 const FOREGROUND_COLOR_DEFAULT = '#000000';
 
 /** Default logo color */
-const LOGO_COLOR_DEFAULT = '#4680c2';
+const LOGO_COLOR_DEFAULT = '#07f';
 
 /**
  * Generates SVG QR code by a text
