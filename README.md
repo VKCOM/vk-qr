@@ -1,6 +1,6 @@
 <div align="center">
 
-[<img width="150" height="150" src="https://psv4.userapi.com/c534536/u338598380/docs/d6/d2b13d62e432/Snimok_ekrana_2021-10-12_v_12_10_25.png?extra=Qta1Jz0j4p2n_N30L66ucEivSCr47XROl1yKflcmMD_7bQDUMd18wbciERvf5-QXt2ERuIJO4guc1QBa8IMf3O5RWTLeCDJI4Oi-d-GKL9LQ2yeSOS6EXO9HUz6UfF5dhPNhjXYZcILLntGDXusOXI-D7g">](https://github.com/VKCOM/vk-qr)
+[<img width="150" height="150" src="https://user-images.githubusercontent.com/45998835/154472026-cae3934d-8013-4898-b7f0-cef7476a6424.png">](https://github.com/VKCOM/vk-qr)
 
 [![npm][npm-shield]][npm-url] [![NPM][npm-downloads-shield]][npm-url] [![Build Status](https://travis-ci.org/VKCOM/vk-qr.svg?branch=master)](https://travis-ci.org/VKCOM/vk-qr)
 
