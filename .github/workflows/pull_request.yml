@@ -6,10 +6,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 14
+          node-version: 20
+          cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn lint
       - run: yarn test
@@ -19,7 +20,7 @@ jobs:
     env:
       CI_JOB_NUMBER: 1
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: andresz1/size-limit-action@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}

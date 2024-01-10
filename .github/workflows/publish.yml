@@ -3,49 +3,68 @@ name: 'Publish'
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: 'version: x.y.z (without "v")'
+      type:
+        description: 'version type:'
         required: true
+        type: choice
+        default: 'minor'
+        options:
+          - patch
+          - minor
+          - major
+      custom_version:
+        description: 'custom version: x.y.z (without "v")'
+        required: false
       tag:
         description: 'tag'
-        required: false
+
+run-name: Publish ${{ inputs.type }} ${{ inputs.custom_version }}
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
 
       - name: Set Git credentials
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: 20
+          cache: 'yarn'
+          always-auth: true
           registry-url: 'https://registry.npmjs.org'
 
       - run: yarn install --frozen-lockfile
       - run: yarn lint
       - run: yarn test
-      - run: yarn version --new-version ${{ github.event.inputs.version }} --no-commit-hooks
+
+      - name: Bump by version type
+        if: ${{ !github.event.inputs.custom_version }}
+        run: yarn version --${{ github.event.inputs.type }} --no-commit-hooks
+
+      - name: Bump by custom version
+        if: ${{ github.event.inputs.custom_version }}
+        run: yarn version --new-version ${{ github.event.inputs.custom_version }} --no-commit-hooks
 
       - name: Pushing changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
-      - name: Publishing prerelase
+      - name: Publushing prerelase
         run: yarn publish --non-interactive --tag ${{ github.event.inputs.tag }}
         if: ${{ github.event.inputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLISH_TOKEN }}
 
-      - name: Publishing release
+      - name: Publushing release
         run: yarn publish --non-interactive
         if: ${{ !github.event.inputs.tag }}
         env:
