@@ -11,8 +11,6 @@ expect.extend({
   }
 });
 
-jest.setTimeout(30000);
-
 test('Simple text encoding without options', async () => {
   const svg = qr.createQR('Lorem ipsum dolor sit amet');
   const png = await convert(svg);
