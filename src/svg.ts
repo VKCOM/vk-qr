@@ -4,7 +4,7 @@ import { QrOptions } from './types';
 const MULTI = 1;
 const QR_BORDER = 7;
 const TILE_SIZE = 96 * MULTI;
-const INC_TILE_SIZE = 96 * MULTI;
+export const INC_TILE_SIZE = 96 * MULTI;
 const SMALL_QR_SIZE = 25;
 
 /**
@@ -167,7 +167,7 @@ export const convertSegmentsToSvgString = (qrCode: QrCode, options: Required<QrO
     position += 50;
   }
 
-  const pointPosition = (qrCode.size - QR_BORDER) * INC_TILE_SIZE;
+  const pointPosition = (qrCode.size - QR_BORDER) * options.incTileSize;
   parts.push(`<use fill-rule="evenodd" transform="translate(0,0)" xlink:href="#point-${options.suffix}"/>`);
   parts.push(
     `<use fill-rule="evenodd" transform="translate(${pointPosition},0)" xlink:href="#point-${options.suffix}"/>`

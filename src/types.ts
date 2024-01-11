@@ -53,4 +53,9 @@ export type QrOptions = {
    * ECC Level
    */
   ecc?: number
+
+  /**
+   * Custom INC_TILE_SIZE
+   */
+  incTileSize?: number
 };

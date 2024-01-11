@@ -1,4 +1,4 @@
-import { convertSegmentsToSvgString } from './svg';
+import { convertSegmentsToSvgString, INC_TILE_SIZE } from './svg';
 import { QrSegment, QrCode } from './qr';
 import { QrOptions } from './types';
 import Ecc = QrCode.Ecc;
@@ -79,6 +79,7 @@ function createQR(
     suffix: options.suffix ? options.suffix.toString() : '0',
     logoData: typeof options.logoData === 'string' ? options.logoData : null,
     ecc: (typeof options.ecc === 'number' && eccLevels[options.ecc] ? options.ecc : 3),
+    incTileSize: typeof options.incTileSize === 'number' ? options.incTileSize : INC_TILE_SIZE,
   };
 
   // Code generation
