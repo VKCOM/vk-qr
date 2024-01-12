@@ -75,5 +75,8 @@
     {
       "path": "dist/umd/qrCodeGenerator.js"
     }
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
