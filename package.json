@@ -47,7 +47,7 @@
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "fast-xml-parser": "^3.12.17",
+    "fast-xml-parser": "^4.3.6",
     "jest": "^24.9.0",
     "jest-image-snapshot": "^2.9.0",
     "js-beautify": "^1.10.0",
