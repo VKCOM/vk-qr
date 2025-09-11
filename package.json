@@ -22,7 +22,7 @@
     "prepublish": "yarn build"
   },
   "keywords": [],
-  "author": "VK.com",
+  "author": "vk.ru",
   "license": "MIT",
   "repository": "VKCOM/vk-qr",
   "jest": {
