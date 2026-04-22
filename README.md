@@ -27,7 +27,7 @@ npm install @vkontakte/vk-qr
 And use in your code
 
 ```js
-import vkQr from '@vkontakte/vk-qr';
+import * as vkQr from '@vkontakte/vk-qr';
 
 // Returns SVG code of generated 256x256 QR code with VK logo
 const qrSvg = vkQr.createQR('Text to encode', {

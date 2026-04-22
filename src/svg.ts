@@ -1,5 +1,5 @@
-import { QrCode } from './qr';
-import { QrOptions } from './types';
+import type { QrCode } from './qr.ts';
+import type { RequiredQrOptions } from './types.ts';
 
 const MULTI = 1;
 const QR_BORDER = 7;
@@ -12,7 +12,13 @@ const SMALL_QR_SIZE = 25;
  * for white or true for black. The top left corner has the coordinates (x=0, y=0).
  * If the given coordinates are out of bounds, then false (white) is returned.
  */
-const getPixel = (x: number, y: number, size: number, modules: boolean[][], isLogoShowed: boolean) => {
+const getPixel = (
+  x: number,
+  y: number,
+  size: number,
+  modules: boolean[][],
+  isLogoShowed: boolean,
+) => {
   if (x < QR_BORDER && y < QR_BORDER) {
     return false;
   }
@@ -48,15 +54,21 @@ const getPixel = (x: number, y: number, size: number, modules: boolean[][], isLo
     return 0 <= x && x < size && 0 <= y && y < size && modules[y][x];
   }
 
-  return modules[y] && modules[y][x];
+  return modules[y]?.[x];
 };
 
-const getNeighbors = (x: number, y: number, size: number, modules: boolean[][], isLogoShowed = true) => ({
+const getNeighbors = (
+  x: number,
+  y: number,
+  size: number,
+  modules: boolean[][],
+  isLogoShowed = true,
+) => ({
   l: getPixel(x - 1, y, size, modules, isLogoShowed),
   r: getPixel(x + 1, y, size, modules, isLogoShowed),
   t: getPixel(x, y - 1, size, modules, isLogoShowed),
   b: getPixel(x, y + 1, size, modules, isLogoShowed),
-  current: getPixel(x, y, size, modules, isLogoShowed)
+  current: getPixel(x, y, size, modules, isLogoShowed),
 });
 
 /**
@@ -64,7 +76,7 @@ const getNeighbors = (x: number, y: number, size: number, modules: boolean[][], 
  * @param qrCode QrCode instance
  * @param options Convertation options
  */
-export const convertSegmentsToSvgString = (qrCode: QrCode, options: Required<QrOptions>): string => {
+export const convertSegmentsToSvgString = (qrCode: QrCode, options: RequiredQrOptions): string => {
   if (typeof options.qrSize !== 'number') {
     throw new Error('Size should be a number');
   }
@@ -111,8 +123,10 @@ export const convertSegmentsToSvgString = (qrCode: QrCode, options: Required<QrO
       let selector = '';
 
       if (neighbors.current) {
-        selector = !selector && !neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b ? 'empty' : '';
-        selector = (!selector && neighbors.l && neighbors.r) || (neighbors.t && neighbors.b) ? 'rect' : '';
+        selector =
+          !selector && !neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b ? 'empty' : '';
+        selector =
+          (!selector && neighbors.l && neighbors.r) || (neighbors.t && neighbors.b) ? 'rect' : '';
         if (!selector) {
           selector += neighbors.l ? 'l' : neighbors.r ? 'r' : '';
           selector += neighbors.t ? 't' : neighbors.b ? 'b' : '';
@@ -168,12 +182,14 @@ export const convertSegmentsToSvgString = (qrCode: QrCode, options: Required<QrO
   }
 
   const pointPosition = (qrCode.size - QR_BORDER) * options.incTileSize;
-  parts.push(`<use fill-rule="evenodd" transform="translate(0,0)" xlink:href="#point-${options.suffix}"/>`);
   parts.push(
-    `<use fill-rule="evenodd" transform="translate(${pointPosition},0)" xlink:href="#point-${options.suffix}"/>`
+    `<use fill-rule="evenodd" transform="translate(0,0)" xlink:href="#point-${options.suffix}"/>`,
   );
   parts.push(
-    `<use fill-rule="evenodd" transform="translate(0,${pointPosition})" xlink:href="#point-${options.suffix}"/>`
+    `<use fill-rule="evenodd" transform="translate(${pointPosition},0)" xlink:href="#point-${options.suffix}"/>`,
+  );
+  parts.push(
+    `<use fill-rule="evenodd" transform="translate(0,${pointPosition})" xlink:href="#point-${options.suffix}"/>`,
   );
 
   if (options.isShowLogo) {
