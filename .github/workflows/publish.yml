@@ -61,10 +61,10 @@ jobs:
           github_token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
-      - name: Publushing prerelase
-        run: yarn publish --non-interactive --tag ${{ github.event.inputs.tag }}
+      - name: Publishing prerelease
+        run: npm publish --tag ${{ github.event.inputs.tag }}
         if: ${{ github.event.inputs.tag }}
 
-      - name: Publushing release
-        run: yarn publish --non-interactive
+      - name: Publishing release
+        run: npm publish
         if: ${{ !github.event.inputs.tag }}
