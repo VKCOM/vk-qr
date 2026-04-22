@@ -1,6 +1,6 @@
 {
 	"name": "@vkontakte/vk-qr",
-	"version": "3.0.0",
+	"version": "2.1.1",
 	"description": "QR Code generator",
 	"type": "module",
 	"exports": {
