@@ -23,6 +23,9 @@ run-name: Publish ${{ inputs.type }} ${{ inputs.custom_version }}
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # Recommended for actions/setup-node
+      id-token: write # Required for OIDC
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,7 +38,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           always-auth: true
           registry-url: 'https://registry.npmjs.org'
@@ -61,11 +64,7 @@ jobs:
       - name: Publushing prerelase
         run: yarn publish --non-interactive --tag ${{ github.event.inputs.tag }}
         if: ${{ github.event.inputs.tag }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLISH_TOKEN }}
 
       - name: Publushing release
         run: yarn publish --non-interactive
         if: ${{ !github.event.inputs.tag }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLISH_TOKEN }}
