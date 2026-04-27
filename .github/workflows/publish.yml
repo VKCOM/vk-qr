@@ -39,7 +39,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          # Не используем кэш для публикации, он может быть отравлен
+          # cache: 'yarn'
           always-auth: true
           registry-url: 'https://registry.npmjs.org'
 
