@@ -36,7 +36,7 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           # Не используем кэш для публикации, он может быть отравлен
