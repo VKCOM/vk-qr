@@ -27,7 +27,7 @@ jobs:
       contents: read # Recommended for actions/setup-node
       id-token: write # Required for OIDC
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
 
