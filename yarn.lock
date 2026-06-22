@@ -275,21 +275,21 @@
   dependencies:
     "@tybys/wasm-util" "^0.10.1"
 
-"@rsbuild/core@~2.0.12":
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/@rsbuild/core/-/core-2.0.14.tgz#7aedc1bbc5c0e25e166fba69f5439f1a6640e2d0"
-  integrity sha512-SSPer6vM+v82CV6JXIOzyyT++A1ECgsVvvUuveD5rfGxX/W58vWGnB+zWcYbMfYOjTntD+9ve6QGGh6kBjPx6A==
+"@rsbuild/core@~2.0.15":
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/@rsbuild/core/-/core-2.0.15.tgz#59c3adddf6cf6b9ef238e4ee5c7b3fca358839aa"
+  integrity sha512-O8vmMhZu1YImO6jOqt/K/vlJSvkq7UtSq5YM1DIlcEd9LW8Gf6/dkQ1B2KPI6F+hSMFBnTTTumdcIowSLCw97g==
   dependencies:
     "@rspack/core" "~2.0.8"
     "@swc/helpers" "^0.5.23"
 
-"@rslib/core@^0.22.0":
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/@rslib/core/-/core-0.22.1.tgz#421738dcba4353adf6ce3914688257a97aec1573"
-  integrity sha512-RaqTITHFkpMDJG9fmD7Hu6FLE64hwctCo46asHOD2DipzQJWawg6K0pFGimTAyutYEZysIUfYgCwSYkbctDudg==
+"@rslib/core@^0.23.0":
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/@rslib/core/-/core-0.23.0.tgz#a02067ee4cc8f417162b4fcba65861c2e3fd4a3d"
+  integrity sha512-OEn5iNKYIyoy0JEUOXH2UTPBKlQRy/RjOtODhC4vS/sIw9iE8Nsp/4s0aeOkNtxsenuuxZCZo2foYvilI7VRgg==
   dependencies:
-    "@rsbuild/core" "~2.0.12"
-    rsbuild-plugin-dts "0.22.1"
+    "@rsbuild/core" "~2.0.15"
+    rsbuild-plugin-dts "0.23.0"
 
 "@rspack/binding-darwin-arm64@2.0.8":
   version "2.0.8"
@@ -480,10 +480,10 @@ picomatch@^4.0.4:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.4.tgz#fd6f5e00a143086e074dffe4c924b8fb293b0589"
   integrity sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==
 
-rsbuild-plugin-dts@0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/rsbuild-plugin-dts/-/rsbuild-plugin-dts-0.22.1.tgz#be4f668200040ecc0422d6026ae0084910aa8405"
-  integrity sha512-6vBfXgwK4j6GkjSRH13tuceBavc6qwSE5IVSoVCZ/wRuM0ZL7dIjdk+yGSWKJt5lNMfc4XwQoTErGIC9zhgztQ==
+rsbuild-plugin-dts@0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/rsbuild-plugin-dts/-/rsbuild-plugin-dts-0.23.0.tgz#7312fb879b7b9589eb7e668f5ae8636d17116625"
+  integrity sha512-3dyx2+ZeIFRR1E3f28wQrcDW1kMa15thHBe97dJby/rE9GQusGPw+td8sVQnxcxhXwzy7eFkUOzN5XoZ/Nj++A==
   dependencies:
     "@ast-grep/napi" "0.37.0"
 
