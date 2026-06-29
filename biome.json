@@ -19,9 +19,9 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "preset": "recommended"
     },
-    "includes": ["**", "!**/node_modules/**/*", "!**/dist/**/*"]
+    "includes": ["**", "!**/node_modules/**/*", "!**/dist/**/*", "!**/__svg_snapshots__/**/*"]
   },
   "javascript": {
     "formatter": {
