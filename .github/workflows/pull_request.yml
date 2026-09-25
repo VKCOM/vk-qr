@@ -23,4 +23,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: andresz1/size-limit-action@v1
         with:
-          github_token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
+          # Dependabot PRs cannot access repository Actions secrets.
+          github_token: ${{ github.token }}
