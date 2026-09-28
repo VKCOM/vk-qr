@@ -39,7 +39,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.12",
-		"@rslib/core": "^0.23.0",
+		"@rslib/core": "^1.0.2",
 		"@size-limit/preset-small-lib": "^14.0.0",
 		"@types/node": "^26.0.0",
 		"size-limit": "^14.0.0",
