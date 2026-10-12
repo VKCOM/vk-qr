@@ -1,5 +1,5 @@
 import { convertSegmentsToSvgString, INC_TILE_SIZE } from './svg.ts';
-import { QrSegment, QrCode, QrCodeEcc } from './qr.ts';
+import { makeSegments, encodeSegments, QrCodeEcc } from './qr.ts';
 import type { QrOptions, RequiredQrOptions } from './types.ts';
 
 /** Default width and height of QR code */
@@ -92,15 +92,8 @@ export function createQR(
   };
 
   // Code generation
-  const segments: QrSegment[] = QrSegment.makeSegments(text);
-  const qrCode: QrCode = QrCode.encodeSegments(
-    segments,
-    eccLevels[fallbackOptions.ecc],
-    1,
-    40,
-    -1,
-    true,
-  );
+  const segments = makeSegments(text);
+  const qrCode = encodeSegments(segments, eccLevels[fallbackOptions.ecc], 1, 40, -1, true);
   const svgCode = convertSegmentsToSvgString(qrCode, fallbackOptions);
 
   return svgCode;
