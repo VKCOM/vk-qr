@@ -7,7 +7,7 @@ For **support or usage questions** like "How do I do X with vk-qr." and "My code
 ## Bugs
 
 > The ideal GitHub issue (and even some feature requests) is not an issue, it's a PR with a failing test case.
-<br/> [@rauchg](https://twitter.com/rauchg/status/810589655532007424)
+> <br/> [@rauchg](https://twitter.com/rauchg/status/810589655532007424)
 
 **Before filing an issue please [search the issue tracker](https://github.com/vkcom/vk-qr/issues); your issue may have already been discussed or fixed in `master`.**
 
@@ -29,7 +29,6 @@ There are issues marked with the **['help wanted'](https://github.com/vkcom/vk-q
 ## Pull Requests (PR)
 
 In general, the contribution workflow looks like this:
-
 1. **Fork** the repo.
 2. **Clone** the repo. `git clone https://github.com/your-username/vk-qr.git`.
 3. Create a **new branch** based off the master branch, provide a **descriptive name** <br/>(ex. '**feat**-add-better-logging', '**bug**-removed-double-method', '**enh**-bumped-eslint')

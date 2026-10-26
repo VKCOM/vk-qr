@@ -1,7 +1,7 @@
-name: 'Cron / Monday'
+name: "Cron / Monday"
 on:
   schedule:
-    - cron: '0 5 * * 1' # Runs at 05:00, only on Monday
+    - cron: "0 5 * * 1" # Runs at 05:00, only on Monday
 
 jobs:
   tools-update:
