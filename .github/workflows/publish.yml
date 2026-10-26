@@ -1,13 +1,13 @@
-name: 'Publish'
+name: "Publish"
 
 on:
   workflow_dispatch:
     inputs:
       type:
-        description: 'version type:'
+        description: "version type:"
         required: true
         type: choice
-        default: 'minor'
+        default: "minor"
         options:
           - patch
           - minor
@@ -16,7 +16,7 @@ on:
         description: 'custom version: x.y.z (without "v")'
         required: false
       tag:
-        description: 'tag'
+        description: "tag"
 
 run-name: Publish ${{ inputs.type }} ${{ inputs.custom_version }}
 
@@ -38,11 +38,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
           # Не используем кэш для публикации, он может быть отравлен
           # cache: 'yarn'
           always-auth: true
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - run: yarn install --frozen-lockfile
       - run: yarn lint

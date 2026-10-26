@@ -32,7 +32,7 @@ import * as vkQr from '@vkontakte/vk-qr';
 // Returns SVG code of generated 256x256 QR code with VK logo
 const qrSvg = vkQr.createQR('Text to encode', {
   qrSize: 256,
-  isShowLogo: true
+  isShowLogo: true,
 });
 ```
 
@@ -51,7 +51,6 @@ generatedSvgCode = vkQr.createQR(text[, qrOptions]);
 
 - `options` _optional_
   An options object containing any custom settings that you want to apply to the generated QR code. The possible options are:
-
   - `qrSize`: Size of QR code.
     Default is 128
 
