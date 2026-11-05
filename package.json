@@ -20,7 +20,7 @@
 	],
 	"scripts": {
 		"test": "node --test tests/**/*.test.ts",
-		"test:update": "UPDATE_SNAPSHOTS=1 node --import tsx --test tests/**/*.test.ts",
+		"test:update": "UPDATE_SNAPSHOTS=1 node --test tests/**/*.test.ts",
 		"watch": "rslib --watch",
 		"build": "rslib",
 		"lint": "yarn lint:biome && yarn lint:types",
