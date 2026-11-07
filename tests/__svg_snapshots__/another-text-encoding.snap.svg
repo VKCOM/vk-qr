@@ -1,52 +1,21 @@
 
   <svg
     version="1.1"
-    viewBox="0 0 2475 2475"
+    viewBox="0 0 2500 2500"
     width="128px"
     height="128px"
+    style="display: block"
     
     xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <defs>
-      <rect id="rect-0" width="100" height="100" fill="#000000"/>
-      <path
-        id="empty-0"
-        d="M0,28.6v42.9C0,87.3,12.8,100,28.6,100h42.9c15.9,0,28.6-12.8,28.6-28.6V28.6C100,12.7,87.2,0,71.4,0H28.6 C12.8,0,0,12.8,0,28.6z"
-        fill="#000000"
-      />
-      <path id="b-0" d="M0,0 L66,0 C84.7776815,-3.44940413e-15 100,15.2223185 100,34 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" transform="rotate(-90 50 50)" fill="#000000"/>
-      <path id="r-0" d="M0,0 L66,0 C84.7776815,-3.44940413e-15 100,15.2223185 100,34 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" transform="rotate(-180 50 50)" fill="#000000"/>
-      <path id="l-0" d="M0,0 L66,0 C84.7776815,-3.44940413e-15 100,15.2223185 100,34 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" fill="#000000"/>
-      <path id="t-0" d="M0,0 L66,0 C84.7776815,-3.44940413e-15 100,15.2223185 100,34 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" transform="rotate(90 50 50)" fill="#000000"/>
-      <path id="l-0" d="M0,0 L100,0 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" transform="rotate(-90 50 50)" fill="#000000"/>
-      <path id="lt-0" d="M0,0 L100,0 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" fill="#000000"/>
-      <path id="lb-0" d="M0,0 L100,0 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" transform="rotate(-90 50 50)" fill="#000000"/>
-      <path id="rb-0" d="M0,0 L100,0 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" transform="rotate(-180 50 50)" fill="#000000"/>
-      <path id="rt-0" d="M0,0 L100,0 L100,66 C100,84.7776815 84.7776815,100 66,100 L0,100 L0,0 Z" transform="rotate(90 50 50)" fill="#000000"/>
-      <path
-        id="n_lt-0"
-        d="M30.5,2V0H0v30.5h2C2,14.7,14.8,2,30.5,2z"
-        fill="#000000"
-      />
-      <path
-        id="n_lb-0"
-        d="M2,69.5H0V100h30.5v-2C14.7,98,2,85.2,2,69.5z"
-        fill="#000000"
-      />
-      <path
-        id="n_rt-0"
-        d="M98,30.5h2V0H69.5v2C85.3,2,98,14.8,98,30.5z"
-        fill="#000000"
-      />
-      <path id="n_rb-0"
-        d="M69.5,98v2H100V69.5h-2C98,85.3,85.2,98,69.5,98z"
-        fill="#000000"
-      />
-      <path
+      <g
         id="point-0"
         fill="#000000"
-        d="M600.001786,457.329333 L600.001786,242.658167 C600.001786,147.372368 587.039517,124.122784 581.464617,118.535383 C575.877216,112.960483 552.627632,99.9982143 457.329333,99.9982143 L242.670667,99.9982143 C147.372368,99.9982143 124.122784,112.960483 118.547883,118.535383 C112.972983,124.122784 99.9982143,147.372368 99.9982143,242.658167 L99.9982143,457.329333 C99.9982143,552.627632 112.972983,575.877216 118.547883,581.464617 C124.122784,587.027017 147.372368,600.001786 242.670667,600.001786 L457.329333,600.001786 C552.627632,600.001786 575.877216,587.027017 581.464617,581.464617 C587.039517,575.877216 600.001786,552.627632 600.001786,457.329333 Z M457.329333,0 C653.338333,0 700,46.6616668 700,242.658167 C700,438.667167 700,261.332833 700,457.329333 C700,653.338333 653.338333,700 457.329333,700 C261.332833,700 438.667167,700 242.670667,700 C46.6616668,700 0,653.338333 0,457.329333 C0,261.332833 0,352.118712 0,242.658167 C0,46.6616668 46.6616668,0 242.670667,0 C438.667167,0 261.332833,0 457.329333,0 Z M395.996667,200 C480.004166,200 500,220.008332 500,303.990835 C500,387.998334 500,312.001666 500,395.996667 C500,479.991668 480.004166,500 395.996667,500 C312.001666,500 387.998334,500 304.003333,500 C220.008332,500 200,479.991668 200,395.996667 C200,312.001666 200,350.906061 200,303.990835 C200,220.008332 220.008332,200 304.003333,200 C387.998334,200 312.001666,200 395.996667,200 Z"
-      />
+      >
+        <rect width="300" height="300" x="200" y="200" rx="67" />
+        <rect width="600" height="600" x="50" y="50" rx="134" stroke-width="100" fill="none" stroke="#000000" />
+      </g>
       <g id="vk_logo-0">
         <path
           fill="#07f"
@@ -64,254 +33,186 @@
 
     
 
-    <g transform="translate(0,0)">
-      <g transform="translate(873,0)"><use xlink:href="#b-0"/></g>
-<g transform="translate(1067,0)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1164,0)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(1455,0)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1552,0)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(873,97)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1067,97)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1164,97)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1455,97)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(1552,97)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(873,194)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1067,194)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(1164,194)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1261,194)"><use xlink:href="#l-0"/></g>
-<g transform="translate(1552,194)"><use xlink:href="#t-0"/></g>
-<g transform="translate(776,291)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(873,291)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1455,291)"><use xlink:href="#b-0"/></g>
-<g transform="translate(776,388)"><use xlink:href="#r-0"/></g>
-<g transform="translate(873,388)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(1358,388)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1455,388)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1067,485)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(1358,485)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1455,485)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1552,485)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(776,582)"><use xlink:href="#b-0"/></g>
-<g transform="translate(970,582)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(1067,582)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1164,582)"><use xlink:href="#b-0"/></g>
-<g transform="translate(1358,582)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1552,582)"><use xlink:href="#t-0"/></g>
-<g transform="translate(679,679)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(776,679)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(873,679)"><use xlink:href="#l-0"/></g>
-<g transform="translate(970,679)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1067,679)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1164,679)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1358,679)"><use xlink:href="#t-0"/></g>
-<g transform="translate(194,776)"><use xlink:href="#r-0"/></g>
-<g transform="translate(291,776)"><use xlink:href="#l-0"/></g>
-<g transform="translate(582,776)"><use xlink:href="#r-0"/></g>
-<g transform="translate(679,776)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(776,776)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(970,776)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1067,776)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1164,776)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(1455,776)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1552,776)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1649,776)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1746,776)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(1843,776)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1940,776)"><use xlink:href="#b-0"/></g>
-<g transform="translate(0,873)"><use xlink:href="#b-0"/></g>
-<g transform="translate(679,873)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(776,873)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(970,873)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(1067,873)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1358,873)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1455,873)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1649,873)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1746,873)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1843,873)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1940,873)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2037,873)"><use xlink:href="#l-0"/></g>
-<g transform="translate(2231,873)"><use xlink:href="#r-0"/></g>
-<g transform="translate(2328,873)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(0,970)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(97,970)"><use xlink:href="#l-0"/></g>
-<g transform="translate(388,970)"><use xlink:href="#b-0"/></g>
-<g transform="translate(582,970)"><use xlink:href="#r-0"/></g>
-<g transform="translate(679,970)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(776,970)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(873,970)"><use xlink:href="#l-0"/></g>
-<g transform="translate(1067,970)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(1164,970)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1261,970)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1358,970)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1455,970)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1552,970)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1649,970)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(2328,970)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(194,1067)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(388,1067)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(485,1067)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(582,1067)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(679,1067)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(776,1067)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(1164,1067)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1261,1067)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(1455,1067)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1843,1067)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1940,1067)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(2134,1067)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(2231,1067)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(2328,1067)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(97,1164)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(291,1164)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(485,1164)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(582,1164)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(679,1164)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(873,1164)"><use xlink:href="#r-0"/></g>
-<g transform="translate(970,1164)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1067,1164)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1164,1164)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1455,1164)"><use xlink:href="#t-0"/></g>
-<g transform="translate(1843,1164)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(1940,1164)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(2134,1164)"><use xlink:href="#r-0"/></g>
-<g transform="translate(2231,1164)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(194,1261)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(776,1261)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(970,1261)"><use xlink:href="#t-0"/></g>
-<g transform="translate(1164,1261)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1455,1261)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1552,1261)"><use xlink:href="#b-0"/></g>
-<g transform="translate(1746,1261)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(2037,1261)"><use xlink:href="#b-0"/></g>
-<g transform="translate(97,1358)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(194,1358)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(291,1358)"><use xlink:href="#b-0"/></g>
-<g transform="translate(485,1358)"><use xlink:href="#r-0"/></g>
-<g transform="translate(582,1358)"><use xlink:href="#l-0"/></g>
-<g transform="translate(1164,1358)"><use xlink:href="#t-0"/></g>
-<g transform="translate(1358,1358)"><use xlink:href="#r-0"/></g>
-<g transform="translate(1455,1358)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1552,1358)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1649,1358)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(1843,1358)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(2037,1358)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(2134,1358)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(2328,1358)"><use xlink:href="#b-0"/></g>
-<g transform="translate(0,1455)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(194,1455)"><use xlink:href="#r-0"/></g>
-<g transform="translate(291,1455)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(582,1455)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(679,1455)"><use xlink:href="#b-0"/></g>
-<g transform="translate(1261,1455)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(1552,1455)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1649,1455)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1746,1455)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(2134,1455)"><use xlink:href="#t-0"/></g>
-<g transform="translate(2328,1455)"><use xlink:href="#t-0"/></g>
-<g transform="translate(291,1552)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(388,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(485,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(582,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(679,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(776,1552)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(970,1552)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1067,1552)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1164,1552)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(1455,1552)"><use xlink:href="#r-0"/></g>
-<g transform="translate(1552,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1649,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1746,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1843,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1940,1552)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2037,1552)"><use xlink:href="#l-0"/></g>
-<g transform="translate(2134,1552)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(2231,1552)"><use xlink:href="#b-0"/></g>
-<g transform="translate(776,1649)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(873,1649)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(970,1649)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1067,1649)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1164,1649)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1261,1649)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1358,1649)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(1455,1649)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1552,1649)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1940,1649)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2134,1649)"><use xlink:href="#r-0"/></g>
-<g transform="translate(2231,1649)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(776,1746)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(873,1746)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(970,1746)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1067,1746)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1261,1746)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1358,1746)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1455,1746)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1552,1746)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1746,1746)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(1940,1746)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2037,1746)"><use xlink:href="#l-0"/></g>
-<g transform="translate(2231,1746)"><use xlink:href="#t-0"/></g>
-<g transform="translate(1067,1843)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(1164,1843)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1261,1843)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1552,1843)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1843,1843)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1940,1843)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2134,1843)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(776,1940)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(873,1940)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(970,1940)"><use xlink:href="#l-0"/></g>
-<g transform="translate(1164,1940)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1261,1940)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1358,1940)"><use xlink:href="#l-0"/></g>
-<g transform="translate(1455,1940)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1552,1940)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1649,1940)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1746,1940)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1843,1940)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1940,1940)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2037,1940)"><use xlink:href="#l-0"/></g>
-<g transform="translate(2231,1940)"><use xlink:href="#r-0"/></g>
-<g transform="translate(2328,1940)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(776,2037)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(873,2037)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(1164,2037)"><use xlink:href="#t-0"/></g>
-<g transform="translate(1455,2037)"><use xlink:href="#r-0"/></g>
-<g transform="translate(1552,2037)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1649,2037)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(1843,2037)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2037,2037)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(2134,2037)"><use xlink:href="#b-0"/></g>
-<g transform="translate(2328,2037)"><use xlink:href="#t-0"/></g>
-<g transform="translate(776,2134)"><use xlink:href="#t-0"/></g>
-<g transform="translate(970,2134)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1067,2134)"><use xlink:href="#b-0"/></g>
-<g transform="translate(1552,2134)"><use xlink:href="#t-0"/></g>
-<g transform="translate(1843,2134)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2037,2134)"><use xlink:href="#r-0"/></g>
-<g transform="translate(2134,2134)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2231,2134)"><use xlink:href="#l-0"/></g>
-<g transform="translate(873,2231)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(970,2231)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1067,2231)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1164,2231)"><use xlink:href="#l-0"/></g>
-<g transform="translate(1261,2231)"><use xlink:href="#n_rb-0"/></g>
-<g transform="translate(1358,2231)"><use xlink:href="#rb-0"/></g>
-<g transform="translate(1455,2231)"><use xlink:href="#lb-0"/></g>
-<g transform="translate(1843,2231)"><use xlink:href="#t-0"/></g>
-<g transform="translate(2134,2231)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(873,2328)"><use xlink:href="#rt-0"/></g>
-<g transform="translate(970,2328)"><use xlink:href="#lt-0"/></g>
-<g transform="translate(1261,2328)"><use xlink:href="#r-0"/></g>
-<g transform="translate(1358,2328)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1455,2328)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(1552,2328)"><use xlink:href="#l-0"/></g>
-<g transform="translate(1746,2328)"><use xlink:href="#empty-0"/></g>
-<g transform="translate(2037,2328)"><use xlink:href="#r-0"/></g>
-<g transform="translate(2134,2328)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2231,2328)"><use xlink:href="#rect-0"/></g>
-<g transform="translate(2328,2328)"><use xlink:href="#l-0"/></g>
-<use fill-rule="evenodd" transform="translate(0,0)" xlink:href="#point-0"/>
-<use fill-rule="evenodd" transform="translate(1728,0)" xlink:href="#point-0"/>
-<use fill-rule="evenodd" transform="translate(0,1728)" xlink:href="#point-0"/>
+    <g>
+    
+      <path
+        d="M 900 35 Q 900 0 935 0 L 965 0 Q 1000 0 1000 35 L 1000 65 Q 1000 100 1000 135 L 1000 165 Q 1000 200 1000 235 L 1000 265 Q 1000 300 1000 335 L 1000 365 Q 1000 400 1000 435 L 1000 465 Q 1000 500 965 500 L 935 500 Q 900 500 865 500 L 835 500 Q 800 500 800 465 L 800 435 Q 800 400 835 400 L 865 400 Q 900 400 900 365 L 900 335 Q 900 300 900 265 L 900 235 Q 900 200 900 165 L 900 135 Q 900 100 900 65 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1100 35 Q 1100 0 1135 0 L 1165 0 Q 1200 0 1235 0 L 1265 0 Q 1300 0 1300 35 L 1300 65 Q 1300 100 1300 135 L 1300 200 L 1365 200 Q 1400 200 1400 235 L 1400 265 Q 1400 300 1365 300 L 1335 300 Q 1300 300 1265 300 L 1235 300 Q 1200 300 1165 300 L 1135 300 Q 1100 300 1100 265 L 1100 235 Q 1100 200 1100 165 L 1100 135 Q 1100 100 1100 65 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1500 35 Q 1500 0 1535 0 L 1565 0 Q 1600 0 1635 0 L 1665 0 Q 1700 0 1700 35 L 1700 65 Q 1700 100 1700 135 L 1700 165 Q 1700 200 1700 235 L 1700 265 Q 1700 300 1665 300 L 1635 300 Q 1600 300 1600 265 L 1600 200 L 1535 200 Q 1500 200 1500 165 L 1500 135 Q 1500 100 1500 65 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1500 335 Q 1500 300 1535 300 L 1565 300 Q 1600 300 1600 335 L 1600 365 Q 1600 400 1600 435 L 1600 500 L 1665 500 Q 1700 500 1700 535 L 1700 565 Q 1700 600 1700 635 L 1700 665 Q 1700 700 1665 700 L 1635 700 Q 1600 700 1600 665 L 1600 600 L 1500 600 L 1500 665 Q 1500 700 1500 735 L 1500 765 Q 1500 800 1465 800 L 1435 800 Q 1400 800 1400 765 L 1400 735 Q 1400 700 1400 665 L 1400 635 Q 1400 600 1400 565 L 1400 535 Q 1400 500 1435 500 L 1465 500 Q 1500 500 1500 465 L 1500 435 Q 1500 400 1500 365 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1100 535 Q 1100 500 1135 500 L 1165 500 Q 1200 500 1200 535 L 1200 565 Q 1200 600 1165 600 L 1135 600 Q 1100 600 1100 565 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 800 635 Q 800 600 835 600 L 865 600 Q 900 600 900 635 L 900 700 L 965 700 Q 1000 700 1000 735 L 1000 765 Q 1000 800 965 800 L 900 800 L 900 865 Q 900 900 900 935 L 900 1000 L 965 1000 Q 1000 1000 1000 1035 L 1000 1065 Q 1000 1100 965 1100 L 900 1100 L 900 1165 Q 900 1200 865 1200 L 800 1200 L 800 1265 Q 800 1300 765 1300 L 735 1300 Q 700 1300 665 1300 L 635 1300 Q 600 1300 565 1300 L 535 1300 Q 500 1300 500 1265 L 500 1200 L 435 1200 Q 400 1200 400 1165 L 400 1135 Q 400 1100 400 1065 L 400 1035 Q 400 1000 435 1000 L 465 1000 Q 500 1000 500 1035 L 500 1100 L 565 1100 Q 600 1100 600 1135 L 600 1200 L 665 1200 Q 700 1200 700 1165 L 700 1100 L 635 1100 Q 600 1100 600 1065 L 600 1035 Q 600 1000 635 1000 L 700 1000 L 700 900 L 635 900 Q 600 900 600 865 L 600 835 Q 600 800 635 800 L 665 800 Q 700 800 735 800 L 765 800 Q 800 800 800 765 L 800 735 Q 800 700 800 665 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1000 635 Q 1000 600 1035 600 L 1065 600 Q 1100 600 1100 635 L 1100 665 Q 1100 700 1065 700 L 1035 700 Q 1000 700 1000 665 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1200 635 Q 1200 600 1235 600 L 1265 600 Q 1300 600 1300 635 L 1300 665 Q 1300 700 1300 735 L 1300 765 Q 1300 800 1300 835 L 1300 865 Q 1300 900 1265 900 L 1200 900 L 1200 1000 L 1265 1000 Q 1300 1000 1335 1000 L 1365 1000 Q 1400 1000 1435 1000 L 1465 1000 Q 1500 1000 1500 965 L 1500 935 Q 1500 900 1500 865 L 1500 835 Q 1500 800 1535 800 L 1565 800 Q 1600 800 1635 800 L 1665 800 Q 1700 800 1735 800 L 1765 800 Q 1800 800 1835 800 L 1865 800 Q 1900 800 1900 835 L 1900 900 L 1965 900 Q 2000 900 2000 865 L 2000 835 Q 2000 800 2035 800 L 2065 800 Q 2100 800 2100 835 L 2100 900 L 2165 900 Q 2200 900 2200 935 L 2200 965 Q 2200 1000 2165 1000 L 2135 1000 Q 2100 1000 2065 1000 L 2035 1000 Q 2000 1000 1965 1000 L 1935 1000 Q 1900 1000 1865 1000 L 1800 1000 L 1800 1065 Q 1800 1100 1765 1100 L 1735 1100 Q 1700 1100 1665 1100 L 1600 1100 L 1600 1165 Q 1600 1200 1600 1235 L 1600 1265 Q 1600 1300 1565 1300 L 1535 1300 Q 1500 1300 1500 1265 L 1500 1235 Q 1500 1200 1500 1165 L 1500 1100 L 1400 1100 L 1400 1165 Q 1400 1200 1365 1200 L 1300 1200 L 1300 1265 Q 1300 1300 1300 1335 L 1300 1365 Q 1300 1400 1300 1435 L 1300 1465 Q 1300 1500 1265 1500 L 1235 1500 Q 1200 1500 1200 1465 L 1200 1435 Q 1200 1400 1200 1365 L 1200 1300 L 1100 1300 L 1100 1365 Q 1100 1400 1065 1400 L 1035 1400 Q 1000 1400 1000 1365 L 1000 1300 L 935 1300 Q 900 1300 900 1265 L 900 1235 Q 900 1200 935 1200 L 965 1200 Q 1000 1200 1035 1200 L 1065 1200 Q 1100 1200 1135 1200 L 1200 1200 L 1200 1100 L 1135 1100 Q 1100 1100 1100 1065 L 1100 1000 L 1035 1000 Q 1000 1000 1000 965 L 1000 935 Q 1000 900 1000 865 L 1000 835 Q 1000 800 1035 800 L 1065 800 Q 1100 800 1100 765 L 1100 735 Q 1100 700 1135 700 L 1165 700 Q 1200 700 1200 665 Z M 1700 900 L 1600 900 L 1600 1000 L 1700 1000 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 200 835 Q 200 800 235 800 L 265 800 Q 300 800 335 800 L 365 800 Q 400 800 400 835 L 400 865 Q 400 900 365 900 L 335 900 Q 300 900 265 900 L 235 900 Q 200 900 200 865 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 0 935 Q 0 900 35 900 L 65 900 Q 100 900 100 935 L 100 1000 L 165 1000 Q 200 1000 200 1035 L 200 1065 Q 200 1100 165 1100 L 135 1100 Q 100 1100 65 1100 L 35 1100 Q 0 1100 0 1065 L 0 1035 Q 0 1000 0 965 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 2300 935 Q 2300 900 2335 900 L 2365 900 Q 2400 900 2435 900 L 2465 900 Q 2500 900 2500 935 L 2500 965 Q 2500 1000 2500 1035 L 2500 1065 Q 2500 1100 2500 1135 L 2500 1165 Q 2500 1200 2465 1200 L 2400 1200 L 2400 1265 Q 2400 1300 2365 1300 L 2335 1300 Q 2300 1300 2265 1300 L 2235 1300 Q 2200 1300 2200 1265 L 2200 1235 Q 2200 1200 2235 1200 L 2265 1200 Q 2300 1200 2300 1165 L 2300 1135 Q 2300 1100 2335 1100 L 2400 1100 L 2400 1000 L 2335 1000 Q 2300 1000 2300 965 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 200 1135 Q 200 1100 235 1100 L 265 1100 Q 300 1100 300 1135 L 300 1165 Q 300 1200 265 1200 L 235 1200 Q 200 1200 200 1165 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1900 1135 Q 1900 1100 1935 1100 L 1965 1100 Q 2000 1100 2035 1100 L 2065 1100 Q 2100 1100 2100 1135 L 2100 1165 Q 2100 1200 2100 1235 L 2100 1265 Q 2100 1300 2065 1300 L 2035 1300 Q 2000 1300 1965 1300 L 1935 1300 Q 1900 1300 1900 1265 L 1900 1235 Q 1900 1200 1900 1165 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 100 1235 Q 100 1200 135 1200 L 165 1200 Q 200 1200 200 1235 L 200 1265 Q 200 1300 165 1300 L 135 1300 Q 100 1300 100 1265 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 300 1235 Q 300 1200 335 1200 L 365 1200 Q 400 1200 400 1235 L 400 1265 Q 400 1300 365 1300 L 335 1300 Q 300 1300 300 1265 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 200 1335 Q 200 1300 235 1300 L 265 1300 Q 300 1300 300 1335 L 300 1365 Q 300 1400 265 1400 L 235 1400 Q 200 1400 200 1365 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 800 1335 Q 800 1300 835 1300 L 865 1300 Q 900 1300 900 1335 L 900 1365 Q 900 1400 865 1400 L 835 1400 Q 800 1400 800 1365 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1600 1335 Q 1600 1300 1635 1300 L 1665 1300 Q 1700 1300 1700 1335 L 1700 1400 L 1765 1400 Q 1800 1400 1800 1435 L 1800 1500 L 1865 1500 Q 1900 1500 1900 1535 L 1900 1600 L 1965 1600 Q 2000 1600 2035 1600 L 2065 1600 Q 2100 1600 2135 1600 L 2165 1600 Q 2200 1600 2200 1635 L 2200 1665 Q 2200 1700 2165 1700 L 2100 1700 L 2100 1800 L 2165 1800 Q 2200 1800 2200 1835 L 2200 1865 Q 2200 1900 2165 1900 L 2100 1900 L 2100 2000 L 2165 2000 Q 2200 2000 2200 2035 L 2200 2065 Q 2200 2100 2165 2100 L 2135 2100 Q 2100 2100 2065 2100 L 2000 2100 L 2000 2165 Q 2000 2200 2000 2235 L 2000 2265 Q 2000 2300 2000 2335 L 2000 2365 Q 2000 2400 1965 2400 L 1935 2400 Q 1900 2400 1900 2365 L 1900 2335 Q 1900 2300 1900 2265 L 1900 2235 Q 1900 2200 1900 2165 L 1900 2100 L 1800 2100 L 1800 2165 Q 1800 2200 1765 2200 L 1700 2200 L 1700 2265 Q 1700 2300 1665 2300 L 1635 2300 Q 1600 2300 1600 2265 L 1600 2200 L 1535 2200 Q 1500 2200 1500 2165 L 1500 2135 Q 1500 2100 1535 2100 L 1565 2100 Q 1600 2100 1600 2065 L 1600 2035 Q 1600 2000 1600 1965 L 1600 1900 L 1535 1900 Q 1500 1900 1465 1900 L 1400 1900 L 1400 2000 L 1465 2000 Q 1500 2000 1500 2035 L 1500 2065 Q 1500 2100 1465 2100 L 1435 2100 Q 1400 2100 1365 2100 L 1300 2100 L 1300 2165 Q 1300 2200 1265 2200 L 1235 2200 Q 1200 2200 1200 2165 L 1200 2135 Q 1200 2100 1200 2065 L 1200 2000 L 1135 2000 Q 1100 2000 1100 1965 L 1100 1900 L 1035 1900 Q 1000 1900 965 1900 L 935 1900 Q 900 1900 865 1900 L 835 1900 Q 800 1900 800 1865 L 800 1835 Q 800 1800 800 1765 L 800 1700 L 735 1700 Q 700 1700 665 1700 L 635 1700 Q 600 1700 565 1700 L 535 1700 Q 500 1700 465 1700 L 435 1700 Q 400 1700 365 1700 L 335 1700 Q 300 1700 300 1665 L 300 1600 L 235 1600 Q 200 1600 200 1565 L 200 1535 Q 200 1500 235 1500 L 265 1500 Q 300 1500 300 1465 L 300 1435 Q 300 1400 335 1400 L 365 1400 Q 400 1400 400 1435 L 400 1465 Q 400 1500 400 1535 L 400 1600 L 465 1600 Q 500 1600 535 1600 L 565 1600 Q 600 1600 635 1600 L 665 1600 Q 700 1600 700 1565 L 700 1535 Q 700 1500 735 1500 L 765 1500 Q 800 1500 800 1535 L 800 1600 L 865 1600 Q 900 1600 900 1635 L 900 1665 Q 900 1700 900 1735 L 900 1800 L 965 1800 Q 1000 1800 1000 1765 L 1000 1735 Q 1000 1700 1035 1700 L 1065 1700 Q 1100 1700 1100 1665 L 1100 1635 Q 1100 1600 1135 1600 L 1165 1600 Q 1200 1600 1235 1600 L 1265 1600 Q 1300 1600 1300 1635 L 1300 1700 L 1365 1700 Q 1400 1700 1435 1700 L 1465 1700 Q 1500 1700 1500 1735 L 1500 1800 L 1565 1800 Q 1600 1800 1600 1765 L 1600 1700 L 1535 1700 Q 1500 1700 1500 1665 L 1500 1635 Q 1500 1600 1535 1600 L 1600 1600 L 1600 1500 L 1535 1500 Q 1500 1500 1465 1500 L 1435 1500 Q 1400 1500 1400 1465 L 1400 1435 Q 1400 1400 1435 1400 L 1465 1400 Q 1500 1400 1535 1400 L 1565 1400 Q 1600 1400 1600 1365 Z M 1835 1700 Q 1800 1700 1765 1700 L 1700 1700 L 1700 1765 Q 1700 1800 1700 1835 L 1700 1865 Q 1700 1900 1700 1935 L 1700 2000 L 1765 2000 Q 1800 2000 1835 2000 L 1865 2000 Q 1900 2000 1935 2000 L 1965 2000 Q 2000 2000 2000 1965 L 2000 1935 Q 2000 1900 2000 1865 L 2000 1835 Q 2000 1800 2000 1765 L 2000 1700 L 1935 1700 Q 1900 1700 1865 1700 Z M 1300 1800 L 1200 1800 L 1200 1900 L 1300 1900 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1800 1335 Q 1800 1300 1835 1300 L 1865 1300 Q 1900 1300 1900 1335 L 1900 1365 Q 1900 1400 1865 1400 L 1835 1400 Q 1800 1400 1800 1365 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 2100 1335 Q 2100 1300 2135 1300 L 2165 1300 Q 2200 1300 2200 1335 L 2200 1400 L 2265 1400 Q 2300 1400 2300 1435 L 2300 1465 Q 2300 1500 2300 1535 L 2300 1565 Q 2300 1600 2265 1600 L 2235 1600 Q 2200 1600 2200 1565 L 2200 1500 L 2135 1500 Q 2100 1500 2100 1465 L 2100 1435 Q 2100 1400 2100 1365 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 100 1435 Q 100 1400 135 1400 L 165 1400 Q 200 1400 200 1435 L 200 1465 Q 200 1500 165 1500 L 135 1500 Q 100 1500 100 1465 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 500 1435 Q 500 1400 535 1400 L 565 1400 Q 600 1400 635 1400 L 665 1400 Q 700 1400 700 1435 L 700 1465 Q 700 1500 665 1500 L 635 1500 Q 600 1500 565 1500 L 535 1500 Q 500 1500 500 1465 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1900 1435 Q 1900 1400 1935 1400 L 1965 1400 Q 2000 1400 2000 1435 L 2000 1465 Q 2000 1500 1965 1500 L 1935 1500 Q 1900 1500 1900 1465 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 2400 1435 Q 2400 1400 2435 1400 L 2465 1400 Q 2500 1400 2500 1435 L 2500 1465 Q 2500 1500 2500 1535 L 2500 1565 Q 2500 1600 2465 1600 L 2435 1600 Q 2400 1600 2400 1565 L 2400 1535 Q 2400 1500 2400 1465 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 0 1535 Q 0 1500 35 1500 L 65 1500 Q 100 1500 100 1535 L 100 1565 Q 100 1600 65 1600 L 35 1600 Q 0 1600 0 1565 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1300 1535 Q 1300 1500 1335 1500 L 1365 1500 Q 1400 1500 1400 1535 L 1400 1565 Q 1400 1600 1365 1600 L 1335 1600 Q 1300 1600 1300 1565 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 2300 1635 Q 2300 1600 2335 1600 L 2365 1600 Q 2400 1600 2400 1635 L 2400 1665 Q 2400 1700 2400 1735 L 2400 1765 Q 2400 1800 2400 1835 L 2400 1865 Q 2400 1900 2365 1900 L 2335 1900 Q 2300 1900 2300 1865 L 2300 1800 L 2235 1800 Q 2200 1800 2200 1765 L 2200 1735 Q 2200 1700 2235 1700 L 2265 1700 Q 2300 1700 2300 1665 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1800 1835 Q 1800 1800 1835 1800 L 1865 1800 Q 1900 1800 1900 1835 L 1900 1865 Q 1900 1900 1865 1900 L 1835 1900 Q 1800 1900 1800 1865 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 2200 1935 Q 2200 1900 2235 1900 L 2265 1900 Q 2300 1900 2300 1935 L 2300 1965 Q 2300 2000 2265 2000 L 2235 2000 Q 2200 2000 2200 1965 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 900 2035 Q 900 2000 935 2000 L 965 2000 Q 1000 2000 1035 2000 L 1065 2000 Q 1100 2000 1100 2035 L 1100 2065 Q 1100 2100 1065 2100 L 1000 2100 L 1000 2165 Q 1000 2200 965 2200 L 900 2200 L 900 2265 Q 900 2300 865 2300 L 835 2300 Q 800 2300 800 2265 L 800 2235 Q 800 2200 800 2165 L 800 2135 Q 800 2100 835 2100 L 865 2100 Q 900 2100 900 2065 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 2300 2035 Q 2300 2000 2335 2000 L 2365 2000 Q 2400 2000 2435 2000 L 2465 2000 Q 2500 2000 2500 2035 L 2500 2065 Q 2500 2100 2500 2135 L 2500 2165 Q 2500 2200 2465 2200 L 2435 2200 Q 2400 2200 2400 2165 L 2400 2100 L 2335 2100 Q 2300 2100 2300 2065 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 2200 2135 Q 2200 2100 2235 2100 L 2265 2100 Q 2300 2100 2300 2135 L 2300 2200 L 2365 2200 Q 2400 2200 2400 2235 L 2400 2265 Q 2400 2300 2365 2300 L 2300 2300 L 2300 2400 L 2365 2400 Q 2400 2400 2435 2400 L 2465 2400 Q 2500 2400 2500 2435 L 2500 2465 Q 2500 2500 2465 2500 L 2435 2500 Q 2400 2500 2365 2500 L 2335 2500 Q 2300 2500 2265 2500 L 2235 2500 Q 2200 2500 2165 2500 L 2135 2500 Q 2100 2500 2100 2465 L 2100 2435 Q 2100 2400 2135 2400 L 2200 2400 L 2200 2300 L 2135 2300 Q 2100 2300 2100 2265 L 2100 2235 Q 2100 2200 2135 2200 L 2165 2200 Q 2200 2200 2200 2165 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1100 2235 Q 1100 2200 1135 2200 L 1165 2200 Q 1200 2200 1200 2235 L 1200 2300 L 1265 2300 Q 1300 2300 1300 2335 L 1300 2365 Q 1300 2400 1265 2400 L 1235 2400 Q 1200 2400 1165 2400 L 1100 2400 L 1100 2465 Q 1100 2500 1065 2500 L 1035 2500 Q 1000 2500 965 2500 L 935 2500 Q 900 2500 900 2465 L 900 2435 Q 900 2400 900 2365 L 900 2335 Q 900 2300 935 2300 L 965 2300 Q 1000 2300 1035 2300 L 1065 2300 Q 1100 2300 1100 2265 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1400 2335 Q 1400 2300 1435 2300 L 1465 2300 Q 1500 2300 1535 2300 L 1565 2300 Q 1600 2300 1600 2335 L 1600 2400 L 1665 2400 Q 1700 2400 1700 2435 L 1700 2465 Q 1700 2500 1665 2500 L 1635 2500 Q 1600 2500 1565 2500 L 1535 2500 Q 1500 2500 1465 2500 L 1435 2500 Q 1400 2500 1365 2500 L 1335 2500 Q 1300 2500 1300 2465 L 1300 2435 Q 1300 2400 1335 2400 L 1365 2400 Q 1400 2400 1400 2365 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M 1800 2435 Q 1800 2400 1835 2400 L 1865 2400 Q 1900 2400 1900 2435 L 1900 2465 Q 1900 2500 1865 2500 L 1835 2500 Q 1800 2500 1800 2465 Z"
+        fill="#000000"
+        fill-rule="evenodd"
+      />
+      <use fill-rule="evenodd" transform="translate(0,0)" xlink:href="#point-0"/>
+<use fill-rule="evenodd" transform="translate(1800,0)" xlink:href="#point-0"/>
+<use fill-rule="evenodd" transform="translate(0,1800)" xlink:href="#point-0"/>
     </g>
+
   </svg>
