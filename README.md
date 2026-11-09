@@ -36,6 +36,17 @@ const qrSvg = vkQr.createQR('Text to encode', {
 });
 ```
 
+Customize the background frame thickness and corner radius in pixels:
+
+```js
+const qrSvg = vkQr.createQR('Text to encode', {
+  qrSize: 256,
+  isShowBackground: true,
+  backgroundPadding: 12,
+  backgroundRadius: 16,
+});
+```
+
 ## API Reference
 
 ### Syntax
@@ -63,6 +74,10 @@ generatedSvgCode = vkQr.createQR(text[, qrOptions]);
 
   - `backgroundColor`: QR code background HEX color. Works if `isShowBackground` is enabled. Default is "#ffffff"
 
+  - `backgroundPadding`: Background frame thickness (padding on each side) in output pixels. Works if `isShowBackground` is enabled. Default is 20
+
+  - `backgroundRadius`: Background corner radius in output pixels. Works if `isShowBackground` is enabled. Default is 36
+
   - `foregroundColor`: QR code HEX color
 
   - `logoColor`: Color of logo. Default is "#4680c2"
@@ -72,6 +87,11 @@ generatedSvgCode = vkQr.createQR(text[, qrOptions]);
   - `suffix`: SVG elements id postfix
 
   - `ecc`: ECC level in range [0-3] (0 - low, 3 - high)
+
+`backgroundPadding` and `backgroundRadius` accept finite, non-negative numbers, including 0.
+Invalid values use the defaults. Both are limited to half of `qrSize`.
+The outer SVG size stays `qrSize` × `qrSize`; padding reduces the space available to the QR code
+equally on all sides. If padding fills the entire image, only the background is rendered.
 
 ### Return value
 

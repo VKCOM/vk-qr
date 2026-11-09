@@ -1,6 +1,7 @@
 import { convertSegmentsToSvgString, INC_TILE_SIZE } from './svg.ts';
 import { makeSegments, encodeSegments, QrCodeEcc } from './qr.ts';
 import type { QrOptions, RequiredQrOptions } from './types.ts';
+import { BACKGROUND_PADDING, BACKGROUND_RADIUS } from './constants.ts';
 
 /** Default width and height of QR code */
 const DEFAULT_SIZE = 128;
@@ -84,6 +85,18 @@ export function createQR(
       typeof options.backgroundColor === 'string'
         ? options.backgroundColor
         : BACKGROUND_COLOR_DEFAULT,
+    backgroundPadding:
+      typeof options.backgroundPadding === 'number' &&
+      Number.isFinite(options.backgroundPadding) &&
+      options.backgroundPadding >= 0
+        ? options.backgroundPadding
+        : BACKGROUND_PADDING,
+    backgroundRadius:
+      typeof options.backgroundRadius === 'number' &&
+      Number.isFinite(options.backgroundRadius) &&
+      options.backgroundRadius >= 0
+        ? options.backgroundRadius
+        : BACKGROUND_RADIUS,
     logoColor: typeof options.logoColor === 'string' ? options.logoColor : LOGO_COLOR_DEFAULT,
     suffix: options.suffix ? options.suffix.toString() : '0',
     logoData: typeof options.logoData === 'string' ? options.logoData : null,
