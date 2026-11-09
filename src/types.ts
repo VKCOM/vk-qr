@@ -55,7 +55,7 @@ export type QrOptions = {
   ecc?: number | undefined;
 
   /**
-   * Custom INC_TILE_SIZE
+   * @deprecated Ignored. QR module size is fixed internally.
    */
   incTileSize?: number | undefined;
 };

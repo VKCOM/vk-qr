@@ -1,82 +1,27 @@
 import type { QrCode } from './qr.ts';
 import type { RequiredQrOptions } from './types.ts';
+import { extractFigures, isFinderPattern } from './figures.ts';
+import { figureToSvgPath } from './svg-path.ts';
+import {
+  FINDER_PATTERN_SIZE,
+  TILE_SIZE,
+  SMALL_QR_SIZE,
+  FINDER_CORNER_RADIUS,
+  BACKGROUND_PADDING,
+  BACKGROUND_RADIUS,
+} from './constants.ts';
 
-const MULTI = 1;
-const QR_BORDER = 7;
-const TILE_SIZE = 96 * MULTI;
-export const INC_TILE_SIZE = 96 * MULTI;
-const SMALL_QR_SIZE = 25;
+export const INC_TILE_SIZE = TILE_SIZE;
 
-/**
- * Returns the color of the module (pixel) at the given coordinates, which is false
- * for white or true for black. The top left corner has the coordinates (x=0, y=0).
- * If the given coordinates are out of bounds, then false (white) is returned.
- */
-const getPixel = (
-  x: number,
-  y: number,
-  size: number,
-  modules: boolean[][],
-  isLogoShowed: boolean,
-) => {
-  if (x < QR_BORDER && y < QR_BORDER) {
-    return false;
-  }
+interface BackgroundLayout {
+  size: number;
+  padding: number;
+  radius: number;
+  hideQr: boolean;
+}
 
-  if (x >= size - QR_BORDER && y < QR_BORDER) {
-    return false;
-  }
-
-  if (x < QR_BORDER && y >= size - QR_BORDER) {
-    return false;
-  }
-
-  if (isLogoShowed) {
-    let imageTiles = QR_BORDER + 2;
-    if (size <= SMALL_QR_SIZE) {
-      imageTiles--;
-    }
-
-    let paddingTiles = (size - QR_BORDER * 2 - imageTiles) / 2 - 1;
-    if (size <= SMALL_QR_SIZE) {
-      paddingTiles++;
-    }
-
-    if (
-      x > QR_BORDER + paddingTiles &&
-      x < size - QR_BORDER - paddingTiles - 1 &&
-      y > QR_BORDER + paddingTiles &&
-      y < size - QR_BORDER - paddingTiles - 1
-    ) {
-      return false;
-    }
-
-    return 0 <= x && x < size && 0 <= y && y < size && modules[y][x];
-  }
-
-  return modules[y]?.[x];
-};
-
-const getNeighbors = (
-  x: number,
-  y: number,
-  size: number,
-  modules: boolean[][],
-  isLogoShowed = true,
-) => ({
-  l: getPixel(x - 1, y, size, modules, isLogoShowed),
-  r: getPixel(x + 1, y, size, modules, isLogoShowed),
-  t: getPixel(x, y - 1, size, modules, isLogoShowed),
-  b: getPixel(x, y + 1, size, modules, isLogoShowed),
-  current: getPixel(x, y, size, modules, isLogoShowed),
-});
-
-/**
- * Converts QrCode instance to SVG code
- * @param qrCode QrCode instance
- * @param options Convertation options
- */
-export const convertSegmentsToSvgString = (qrCode: QrCode, options: RequiredQrOptions): string => {
+/** Converts a QR module matrix to SVG. */
+export function convertSegmentsToSvgString(qrCode: QrCode, options: RequiredQrOptions): string {
   if (typeof options.qrSize !== 'number') {
     throw new Error('Size should be a number');
   }
@@ -85,223 +30,146 @@ export const convertSegmentsToSvgString = (qrCode: QrCode, options: RequiredQrOp
     throw new Error('Classname should be a string');
   }
 
-  const _2 = 2 * MULTI;
-  const _12_7 = 12.7 * MULTI;
-  const _12_8 = 12.8 * MULTI;
-  const _14_7 = 14.7 * MULTI;
-  const _14_8 = 14.8 * MULTI;
-  const _15_9 = 15.9 * MULTI;
-  const _28_6 = 28.6 * MULTI;
-  const _30_5 = 30.5 * MULTI;
-  const _84_7 = 84.7776815 * MULTI;
-  const _87_3 = 87.3 * MULTI;
-  const _71_4 = 71.4 * MULTI;
-  const _42_9 = 42.9 * MULTI;
-  const _87_2 = 87.2 * MULTI;
-  const _85_2 = 85.2 * MULTI;
-  const _85_3 = 85.3 * MULTI;
-  const _69_5 = 69.5 * MULTI;
-  const _98 = 98 * MULTI;
-  const _100 = 100 * MULTI;
+  const background = getBackgroundLayout(qrCode.size, options);
+  const parts = renderFinderPatterns(qrCode.size, options);
+  if (options.isShowLogo) parts.push(renderLogo(qrCode.size, options));
 
-  const parts = [];
-  let leftPadding = 0;
-  let topPadding = 0;
-  let xCoord = 0;
-  let yCoord = 0;
+  return `
+  <svg
+    version="1.1"
+    viewBox="${-background.padding} ${-background.padding} ${background.size} ${background.size}"
+    width="${options.qrSize}px"
+    height="${options.qrSize}px"
+    style="display: block"
+    ${options.className ? `class="${options.className}"` : ''}
+    xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
+    ${renderDefinitions(options)}
 
-  for (let y = 0; y < qrCode.size; y++) {
-    leftPadding = 0;
-    for (let x = 0; x < qrCode.size; x++) {
-      xCoord = x + leftPadding;
-      leftPadding += TILE_SIZE;
-      yCoord = y + topPadding;
+    ${renderBackground(background, options)}
 
-      const neighbors = getNeighbors(x, y, qrCode.size, qrCode.modules, options.isShowLogo);
+    <g${background.hideQr ? ' display="none"' : ''}>
+    ${renderModules(qrCode, options)}
+      ${parts.join('\n')}
+    </g>
 
-      let path = '';
-      let selector = '';
+  </svg>`;
+}
 
-      if (neighbors.current) {
-        selector =
-          !selector && !neighbors.l && !neighbors.r && !neighbors.t && !neighbors.b ? 'empty' : '';
-        selector =
-          (!selector && neighbors.l && neighbors.r) || (neighbors.t && neighbors.b) ? 'rect' : '';
-        if (!selector) {
-          selector += neighbors.l ? 'l' : neighbors.r ? 'r' : '';
-          selector += neighbors.t ? 't' : neighbors.b ? 'b' : '';
-          if (!selector) {
-            selector = 'empty';
-          }
-        }
-      } else {
-        selector =
-          !selector &&
-          neighbors.l &&
-          neighbors.t &&
-          getPixel(x - 1, y - 1, qrCode.size, qrCode.modules, options.isShowLogo)
-            ? 'n_lt'
-            : '';
-        selector =
-          !selector &&
-          neighbors.l &&
-          neighbors.b &&
-          getPixel(x - 1, y + 1, qrCode.size, qrCode.modules, options.isShowLogo)
-            ? 'n_lb'
-            : '';
-        selector =
-          !selector &&
-          neighbors.r &&
-          neighbors.t &&
-          getPixel(x + 1, y - 1, qrCode.size, qrCode.modules, options.isShowLogo)
-            ? 'n_rt'
-            : '';
-        selector =
-          !selector &&
-          neighbors.r &&
-          neighbors.b &&
-          getPixel(x + 1, y + 1, qrCode.size, qrCode.modules, options.isShowLogo)
-            ? 'n_rb'
-            : '';
-      }
+function getVisibleModules(qrCode: QrCode, isShowLogo: boolean): boolean[][] {
+  if (!isShowLogo) return qrCode.modules;
 
-      if (!selector) {
-        continue;
-      }
-      path = `<use xlink:href="#${selector}-${options.suffix}"/>`;
-      parts.push(`<g transform="translate(${xCoord},${yCoord})">${path}</g>`);
-    }
-    topPadding += TILE_SIZE;
-  }
+  // Clear the logo area before tracing contours so transparent logos retain
+  // their quiet zone and neighboring modules do not connect through it.
+  const logoAreaSize = qrCode.size <= SMALL_QR_SIZE ? FINDER_PATTERN_SIZE : FINDER_PATTERN_SIZE + 2;
+  const logoAreaStart = (qrCode.size - logoAreaSize) / 2;
+  return qrCode.modules.map((row, y) =>
+    row.map(
+      (pixel, x) =>
+        pixel &&
+        !(
+          x >= logoAreaStart &&
+          x < logoAreaStart + logoAreaSize &&
+          y >= logoAreaStart &&
+          y < logoAreaStart + logoAreaSize
+        ),
+    ),
+  );
+}
 
+function renderModules(qrCode: QrCode, options: RequiredQrOptions): string {
+  return extractFigures(getVisibleModules(qrCode, options.isShowLogo))
+    .filter((figure) => !isFinderPattern(figure, qrCode.size))
+    .map(
+      (figure) => `
+      <path
+        d="${figureToSvgPath(figure)}"
+        fill="${options.foregroundColor}"
+        fill-rule="evenodd"
+      />`,
+    )
+    .join('');
+}
+
+function renderFinderPatterns(size: number, options: RequiredQrOptions): string[] {
+  const pointPosition = (size - FINDER_PATTERN_SIZE) * TILE_SIZE;
+  return [
+    `<use fill-rule="evenodd" transform="translate(0,0)" xlink:href="#point-${options.suffix}"/>`,
+    `<use fill-rule="evenodd" transform="translate(${pointPosition},0)" xlink:href="#point-${options.suffix}"/>`,
+    `<use fill-rule="evenodd" transform="translate(0,${pointPosition})" xlink:href="#point-${options.suffix}"/>`,
+  ];
+}
+
+function renderLogo(size: number, options: RequiredQrOptions): string {
   let scale = '';
-  let position = ((qrCode.size - QR_BORDER * 3) / 2) * TILE_SIZE + TILE_SIZE * QR_BORDER - 10;
-  if (qrCode.size <= SMALL_QR_SIZE) {
+  let position =
+    ((size - FINDER_PATTERN_SIZE * 3) / 2) * TILE_SIZE + TILE_SIZE * FINDER_PATTERN_SIZE - 10;
+  if (size <= SMALL_QR_SIZE) {
     scale = 'scale(0.85)';
     position += 50;
   }
 
-  const pointPosition = (qrCode.size - QR_BORDER) * options.incTileSize;
-  parts.push(
-    `<use fill-rule="evenodd" transform="translate(0,0)" xlink:href="#point-${options.suffix}"/>`,
-  );
-  parts.push(
-    `<use fill-rule="evenodd" transform="translate(${pointPosition},0)" xlink:href="#point-${options.suffix}"/>`,
-  );
-  parts.push(
-    `<use fill-rule="evenodd" transform="translate(0,${pointPosition})" xlink:href="#point-${options.suffix}"/>`,
-  );
-
-  if (options.isShowLogo) {
-    if (!options.logoData) {
-      parts.push(`
+  if (!options.logoData) {
+    return `
         <use style="width: 750px; height: 750px;" width="750" height="750"
           fill="none"
           fill-rule="evenodd"
           transform="translate(${position},${position}) ${scale}" xlink:href="#vk_logo-${options.suffix}"
         />
-      `);
-    } else {
-      parts.push(`
+      `;
+  }
+
+  return `
         <image
           preserveAspectRatio="xMidYMid slice" clip-path="url(#logo-mask-${options.suffix})"
           style="width: 750px; height: 750px;" width="750" height="750"
           transform="translate(${position},${position}) ${scale}"
           xlink:href="${options.logoData}"
         />
-      `);
-    }
+      `;
+}
+
+function getBackgroundLayout(size: number, options: RequiredQrOptions): BackgroundLayout {
+  const contentSize = TILE_SIZE * size;
+  if (!options.isShowBackground) {
+    return { size: contentSize, padding: 0, radius: 0, hideQr: false };
   }
 
-  const backgroundSize = 99 * qrCode.size;
-  let qrBackground = '';
-  let qrTransform = 'translate(0,0)';
+  const frameWidth = Math.min(BACKGROUND_PADDING, options.qrSize / 2);
+  const contentWidth = options.qrSize - frameWidth * 2;
+  const hideQr = contentWidth <= 0;
+  const backgroundSize = hideQr ? contentSize : (contentSize * options.qrSize) / contentWidth;
+  const padding = (backgroundSize - contentSize) / 2;
+  const radius =
+    (Math.min(BACKGROUND_RADIUS, options.qrSize / 2) / options.qrSize) * backgroundSize;
 
-  if (options.isShowBackground) {
-    const qrScale = (options.qrSize - 20 * 2) / options.qrSize; // 0.756972112
-    const padding = (backgroundSize / options.qrSize) * 21;
-    const radius = Math.ceil(backgroundSize / (options.qrSize / 36)); // 7.11111111 = 256px/36px radius
+  return { size: backgroundSize, padding, radius, hideQr };
+}
 
-    qrBackground = `
+function renderBackground(layout: BackgroundLayout, options: RequiredQrOptions): string {
+  if (!options.isShowBackground) return '';
+
+  const { size, padding, radius } = layout;
+  return `
       <rect
-        x="0"
-        width="${backgroundSize}"
-        height="${backgroundSize}"
+        x="${-padding}"
+        y="${-padding}"
+        width="${size}"
+        height="${size}"
         rx="${radius}"
         fill="${options.backgroundColor}"
       />`;
-    qrTransform = `translate(${padding}, ${padding}) scale(${qrScale})`;
-  }
+}
 
-  // eslint-disable-next-line
-  const oneSide = `M0,0 L66,0 C${_84_7},-3.44940413e-15 ${_100},15.2223185 ${_100},34 L${_100},66 C${_100},${_84_7} \
-${_84_7},${_100} 66,${_100} L0,${_100} L0,0 Z`;
-  const twoSides = `M0,0 L${_100},0 L${_100},66 C${_100},${_84_7} ${_84_7},${_100} 66,${_100} L0,${_100} L0,0 Z`;
-
-  return `
-  <svg
-    version="1.1"
-    viewBox="0 0 ${backgroundSize} ${backgroundSize}"
-    width="${options.qrSize}px"
-    height="${options.qrSize}px"
-    ${options.className ? `class="${options.className}"` : ''}
-    xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  >
-    <defs>
-      <rect id="rect-${options.suffix}" width="100" height="100" fill="${options.foregroundColor}"/>
-      <path
-        id="empty-${options.suffix}"
-        d="M0,${_28_6}v${_42_9}C0,${_87_3},${_12_8},${_100},${_28_6},${_100}h${_42_9}c${_15_9},0,${_28_6}-${_12_8},\
-${_28_6}-${_28_6}V${_28_6}C${_100},${_12_7},${_87_2},0,${_71_4},0H${_28_6} C${_12_8},0,0,${_12_8},0,${_28_6}z"
-        fill="${options.foregroundColor}"
-      />
-      <path id="b-${options.suffix}" d="${oneSide}" transform="rotate(-90 50 50)" fill="${options.foregroundColor}"/>
-      <path id="r-${options.suffix}" d="${oneSide}" transform="rotate(-180 50 50)" fill="${options.foregroundColor}"/>
-      <path id="l-${options.suffix}" d="${oneSide}" fill="${options.foregroundColor}"/>
-      <path id="t-${options.suffix}" d="${oneSide}" transform="rotate(90 50 50)" fill="${options.foregroundColor}"/>
-      <path id="l-${options.suffix}" d="${twoSides}" transform="rotate(-90 50 50)" fill="${options.foregroundColor}"/>
-      <path id="lt-${options.suffix}" d="${twoSides}" fill="${options.foregroundColor}"/>
-      <path id="lb-${options.suffix}" d="${twoSides}" transform="rotate(-90 50 50)" fill="${options.foregroundColor}"/>
-      <path id="rb-${options.suffix}" d="${twoSides}" transform="rotate(-180 50 50)" fill="${options.foregroundColor}"/>
-      <path id="rt-${options.suffix}" d="${twoSides}" transform="rotate(90 50 50)" fill="${options.foregroundColor}"/>
-      <path
-        id="n_lt-${options.suffix}"
-        d="M${_30_5},${_2}V0H0v${_30_5}h${_2}C${_2},${_14_7},${_14_8},${_2},${_30_5},${_2}z"
-        fill="${options.foregroundColor}"
-      />
-      <path
-        id="n_lb-${options.suffix}"
-        d="M${_2},${_69_5}H0V${_100}h${_30_5}v-${_2}C${_14_7},${_98},${_2},${_85_2},${_2},${_69_5}z"
-        fill="${options.foregroundColor}"
-      />
-      <path
-        id="n_rt-${options.suffix}"
-        d="M${_98},${_30_5}h${_2}V0H${_69_5}v${_2}C${_85_3},${_2},${_98},${_14_8},${_98},${_30_5}z"
-        fill="${options.foregroundColor}"
-      />
-      <path id="n_rb-${options.suffix}"
-        d="M${_69_5},${_98}v${_2}H${_100}V${_69_5}h-${_2}C${_98},${_85_3},${_85_2},${_98},${_69_5},${_98}z"
-        fill="${options.foregroundColor}"
-      />
-      <path
+function renderDefinitions(options: RequiredQrOptions): string {
+  return `<defs>
+      <g
         id="point-${options.suffix}"
         fill="${options.foregroundColor}"
-        d="M600.001786,457.329333 L600.001786,242.658167 C600.001786,147.372368 587.039517,124.122784 \
-581.464617,118.535383 C575.877216,112.960483 552.627632,99.9982143 457.329333,99.9982143 \
-L242.670667,99.9982143 C147.372368,99.9982143 124.122784,112.960483 118.547883,118.535383 \
-C112.972983,124.122784 99.9982143,147.372368 99.9982143,242.658167 L99.9982143,457.329333 \
-C99.9982143,552.627632 112.972983,575.877216 118.547883,581.464617 C124.122784,587.027017 \
-147.372368,600.001786 242.670667,600.001786 L457.329333,600.001786 C552.627632,600.001786 \
-575.877216,587.027017 581.464617,581.464617 C587.039517,575.877216 600.001786,552.627632 \
-600.001786,457.329333 Z M457.329333,0 C653.338333,0 700,46.6616668 700,242.658167 C700,438.667167 \
-700,261.332833 700,457.329333 C700,653.338333 653.338333,700 457.329333,700 C261.332833,700 438.667167,700 \
-242.670667,700 C46.6616668,700 0,653.338333 0,457.329333 C0,261.332833 0,352.118712 0,242.658167 \
-C0,46.6616668 46.6616668,0 242.670667,0 C438.667167,0 261.332833,0 457.329333,0 Z M395.996667,200 \
-C480.004166,200 500,220.008332 500,303.990835 C500,387.998334 500,312.001666 500,395.996667 \
-C500,479.991668 480.004166,500 395.996667,500 C312.001666,500 387.998334,500 304.003333,500 C220.008332,500 \
-200,479.991668 200,395.996667 C200,312.001666 200,350.906061 200,303.990835 C200,220.008332 220.008332,200 \
-304.003333,200 C387.998334,200 312.001666,200 395.996667,200 Z"
-      />
+      >
+        <rect width="300" height="300" x="200" y="200" rx="${FINDER_CORNER_RADIUS}" />
+        <rect width="600" height="600" x="50" y="50" rx="${FINDER_CORNER_RADIUS * 2}" stroke-width="100" fill="none" stroke="${options.foregroundColor}" />
+      </g>
       <g id="vk_logo-${options.suffix}">
         <path
           fill="${options.logoColor}"
@@ -322,12 +190,5 @@ C500,479.991668 480.004166,500 395.996667,500 C312.001666,500 387.998334,500 304
       <clipPath id="logo-mask-${options.suffix}">
         <rect x="0" y="0" width="750" height="750" />
       </clipPath>
-    </defs>
-
-    ${qrBackground}
-
-    <g transform="${qrTransform}">
-      ${parts.join('\n')}
-    </g>
-  </svg>`;
-};
+    </defs>`;
+}
