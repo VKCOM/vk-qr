@@ -29,6 +29,20 @@ export type QrOptions = {
   backgroundColor?: string | undefined;
 
   /**
+   * Background frame thickness in output pixels. Works if `isShowBackground` is enabled.
+   * Must be finite and non-negative. Clamped to half of `qrSize`.
+   * @default 20
+   */
+  backgroundPadding?: number | undefined;
+
+  /**
+   * Background corner radius in output pixels. Works if `isShowBackground` is enabled.
+   * Must be finite and non-negative. Clamped to half of `qrSize`.
+   * @default 36
+   */
+  backgroundRadius?: number | undefined;
+
+  /**
    * QR code HEX color
    */
   foregroundColor?: string | undefined;

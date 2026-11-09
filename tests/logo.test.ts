@@ -1,13 +1,13 @@
 import assert from 'node:assert/strict';
 import { it } from 'node:test';
 import { figureToSvgPath } from '../src/svg-path.ts';
-import { QrCode, QrCodeEcc } from '../src/qr.ts';
+import { encodeSegments, QrCodeEcc } from '../src/qr.ts';
 import { convertSegmentsToSvgString } from '../src/svg.ts';
 import type { RequiredQrOptions } from '../src/types.ts';
 
 it('clears the logo quiet zone before tracing modules without changing the QR matrix', () => {
   for (const version of [1, 2, 3, 10]) {
-    const qrCode = QrCode.encodeSegments([], QrCodeEcc.HIGH, version, version);
+    const qrCode = encodeSegments([], QrCodeEcc.HIGH, version, version);
     const areaSize = version <= 2 ? 7 : 9;
     const start = (qrCode.size - areaSize) / 2;
     const end = start + areaSize;
@@ -27,6 +27,8 @@ it('clears the logo quiet zone before tracing modules without changing the QR ma
         isShowLogo: true,
         isShowBackground: false,
         backgroundColor: '#ffffff',
+        backgroundPadding: 20,
+        backgroundRadius: 36,
         foregroundColor: '#000000',
         logoColor: '#07f',
         suffix: '0',

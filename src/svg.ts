@@ -7,8 +7,6 @@ import {
   TILE_SIZE,
   SMALL_QR_SIZE,
   FINDER_CORNER_RADIUS,
-  BACKGROUND_PADDING,
-  BACKGROUND_RADIUS,
 } from './constants.ts';
 
 export const INC_TILE_SIZE = TILE_SIZE;
@@ -135,13 +133,13 @@ function getBackgroundLayout(size: number, options: RequiredQrOptions): Backgrou
     return { size: contentSize, padding: 0, radius: 0, hideQr: false };
   }
 
-  const frameWidth = Math.min(BACKGROUND_PADDING, options.qrSize / 2);
+  const frameWidth = Math.min(options.backgroundPadding, options.qrSize / 2);
   const contentWidth = options.qrSize - frameWidth * 2;
   const hideQr = contentWidth <= 0;
   const backgroundSize = hideQr ? contentSize : (contentSize * options.qrSize) / contentWidth;
   const padding = (backgroundSize - contentSize) / 2;
   const radius =
-    (Math.min(BACKGROUND_RADIUS, options.qrSize / 2) / options.qrSize) * backgroundSize;
+    (Math.min(options.backgroundRadius, options.qrSize / 2) / options.qrSize) * backgroundSize;
 
   return { size: backgroundSize, padding, radius, hideQr };
 }
