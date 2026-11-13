@@ -29,6 +29,7 @@ There are issues marked with the **['help wanted'](https://github.com/vkcom/vk-q
 ## Pull Requests (PR)
 
 In general, the contribution workflow looks like this:
+
 1. **Fork** the repo.
 2. **Clone** the repo. `git clone https://github.com/your-username/vk-qr.git`.
 3. Create a **new branch** based off the master branch, provide a **descriptive name** <br/>(ex. '**feat**-add-better-logging', '**bug**-removed-double-method', '**enh**-bumped-eslint')
@@ -62,13 +63,11 @@ Please **follow** the **conventions** already established in the code.
 
 Guidelines are enforced using **[ESLint](http://eslint.org/)**.
 
-
 You can **run the linting script** by using
 
 ```console
 $ npm run lint
 ```
-
 
 ## Testing
 
