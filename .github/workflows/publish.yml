@@ -27,7 +27,7 @@ jobs:
       contents: read # Recommended for actions/setup-node
       id-token: write # Required for OIDC
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
 
@@ -36,12 +36,12 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version-file: ".nvmrc"
           # Не используем кэш для публикации, он может быть отравлен
           # cache: 'yarn'
-          always-auth: true
+          package-manager-cache: false
           registry-url: "https://registry.npmjs.org"
 
       - run: yarn install --frozen-lockfile
@@ -57,7 +57,7 @@ jobs:
         run: yarn version --new-version ${{ github.event.inputs.custom_version }} --no-commit-hooks
 
       - name: Pushing changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@v1.3.0
         with:
           github_token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
           branch: ${{ github.ref }}
