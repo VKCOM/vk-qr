@@ -63,70 +63,70 @@
     "@ast-grep/napi-win32-x64-msvc" "0.51.0"
 
 "@biomejs/biome@^2.4.12":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/biome/-/biome-2.6.5.tgz#a9f4c30c653f09ef5223d402436d26a62183aaaa"
-  integrity sha512-n0sp74QbSVEkWXlH659TKv4oJNylwAvDeZ8K8vt/PbcF1xneuNWe57z/G0Bxfh00cufhWXF6DiStLM8+jcLUpg==
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/biome/-/biome-2.6.7.tgz#714f69b79ee9d63d823fec44922801c9151502d1"
+  integrity sha512-2bT1FE6FvZZgPLFw4BjcDyRwG8Ry9zYla4X+Lw8oj2SxvqiXHiYkkEpjcrsWQrik6iYHygAa/D67YxLbVz9P1Q==
   optionalDependencies:
-    "@biomejs/cli-android-arm64" "2.6.5"
-    "@biomejs/cli-android-x64" "2.6.5"
-    "@biomejs/cli-darwin-arm64" "2.6.5"
-    "@biomejs/cli-darwin-x64" "2.6.5"
-    "@biomejs/cli-linux-arm64" "2.6.5"
-    "@biomejs/cli-linux-arm64-musl" "2.6.5"
-    "@biomejs/cli-linux-x64" "2.6.5"
-    "@biomejs/cli-linux-x64-musl" "2.6.5"
-    "@biomejs/cli-win32-arm64" "2.6.5"
-    "@biomejs/cli-win32-x64" "2.6.5"
+    "@biomejs/cli-android-arm64" "2.6.7"
+    "@biomejs/cli-android-x64" "2.6.7"
+    "@biomejs/cli-darwin-arm64" "2.6.7"
+    "@biomejs/cli-darwin-x64" "2.6.7"
+    "@biomejs/cli-linux-arm64" "2.6.7"
+    "@biomejs/cli-linux-arm64-musl" "2.6.7"
+    "@biomejs/cli-linux-x64" "2.6.7"
+    "@biomejs/cli-linux-x64-musl" "2.6.7"
+    "@biomejs/cli-win32-arm64" "2.6.7"
+    "@biomejs/cli-win32-x64" "2.6.7"
 
-"@biomejs/cli-android-arm64@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-android-arm64/-/cli-android-arm64-2.6.5.tgz#ce36b2a2e46e16eab998c429a9c89c9e75cb12dc"
-  integrity sha512-fkLzc1WRU7wRIUNmAm7cxILb4dd6eESz/VycWvVFKVn6tXx0gFQKdUbPnwT42xys8AEvIJQpFGcK00kURwqorg==
+"@biomejs/cli-android-arm64@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-android-arm64/-/cli-android-arm64-2.6.7.tgz#bd0de8846d7a583ef57db6d3d202799622c00308"
+  integrity sha512-f4fyRTl+rW6QZp+iHdZrKAKptG/xmIDijTnxWhpC1Hnzr8yvjaBm/aJ98JiMv5mMx7jL1MOu4+zwmQUzfcoKBg==
 
-"@biomejs/cli-android-x64@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-android-x64/-/cli-android-x64-2.6.5.tgz#4991b6a18fb2d7bcb62044208ec9ebb1b8632cb5"
-  integrity sha512-fkZ9dPnDAzAcaPtPCiwqtkub5C9FQK/oGCGaU9sq+DysTaq13pE9FxBIMcEZ3ydn8/FfcMdXi/DDzKDP+qyn2Q==
+"@biomejs/cli-android-x64@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-android-x64/-/cli-android-x64-2.6.7.tgz#566d9892413187ea2a366cbc3400274edfca7d20"
+  integrity sha512-eUdeN+mh2bwen+By1feKzpFkFGAfLG3Pxi6tbwpzMvePBwFGMd4mnE6gaxDRMiWJ1eMuc+Xhtg3ErbLLbtL5wQ==
 
-"@biomejs/cli-darwin-arm64@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-darwin-arm64/-/cli-darwin-arm64-2.6.5.tgz#f3f4a7ed8ef1242da1e2fa885a7472e2699ecc83"
-  integrity sha512-bKd0EOREgnVjeZm4s9knQ+WdPOkWS3JHB+eWGHlx+Pq66bqQA1/KybwU0O+zuyAyXiphSCBcrLruZt3YtnJoaQ==
+"@biomejs/cli-darwin-arm64@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-darwin-arm64/-/cli-darwin-arm64-2.6.7.tgz#e64784567c80701f4d660abf6dff661d1534c3fa"
+  integrity sha512-GewLcsnCsVblgnWYw5QRz5ydy9xphCtlFP37TpLKarezqwZMrH2qxrYblhY6DPOir4gnKyaqDnS/xZWIGVjaKw==
 
-"@biomejs/cli-darwin-x64@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-darwin-x64/-/cli-darwin-x64-2.6.5.tgz#48127b50cc2e93ec6a648511f99e11134315757c"
-  integrity sha512-UkT9BECNOXSiW6SGddjyaRACy362Sc9n3vDaTFkccL0bC2gW7JzM16i4+JKPbEaDn1Sa+oETHV8KungnI/y40Q==
+"@biomejs/cli-darwin-x64@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-darwin-x64/-/cli-darwin-x64-2.6.7.tgz#89a697c4bf95db284790d99271e1459076a5062c"
+  integrity sha512-AMPl+Q+bHjRcNUBn8gwBl+dJAnKRUWGZ7ZiJo2U8tQtdpqJ32OqvIg4cwTH+xv0jrcNVkUSE69nj57zsHZ1WBA==
 
-"@biomejs/cli-linux-arm64-musl@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-arm64-musl/-/cli-linux-arm64-musl-2.6.5.tgz#7d5e29afee488521e00f7488e32e376cb6eee0e6"
-  integrity sha512-kfc3AePW1a0/d/gUpcIz95nf3Ce8YY2/xL0Fk3fLqAhKsotqUi6PN6BaVWss4p6ijWbiuacZ9NQ4NiQtpjbYpw==
+"@biomejs/cli-linux-arm64-musl@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-arm64-musl/-/cli-linux-arm64-musl-2.6.7.tgz#a236e18a5d0fc6b4de7f9cd77fdc2fd977e2de8e"
+  integrity sha512-BIA7qVO1O15D2wVKxLTcvEWszgOqJVZRUhlksg1KQ9N0VtYCbvknV1vyjFiSrzuBT57+z59gbzhYQCinw9lRSQ==
 
-"@biomejs/cli-linux-arm64@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-arm64/-/cli-linux-arm64-2.6.5.tgz#4f4f2925bdabb9ca816b95b8bd52754f13dfa594"
-  integrity sha512-H9cVMWBqW/lkFK9NHJdt0bpM2q7PacUDEjQoff9+m0dCV09H/jmBykfTCkbDthHf8+jCuWDJWiQFJ7bDkiGOcA==
+"@biomejs/cli-linux-arm64@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-arm64/-/cli-linux-arm64-2.6.7.tgz#2cddf8d69ce9690f8219b3efc6521a72158688ce"
+  integrity sha512-Qa2edxQClKn17y1ASWkOOuT96K2si1nTLiPbXMOMilNJ79eNsa1as1kaSbgxOXy1kRUENw76sp4pAddneq3l8Q==
 
-"@biomejs/cli-linux-x64-musl@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-x64-musl/-/cli-linux-x64-musl-2.6.5.tgz#16105a1366e68c8c1c88cb5824446f4717050ee9"
-  integrity sha512-0mHVpLNt7/FugfZ2VPugUIEIiooWIyHGGJUqU9StxamBln9hz+maXRFIECU50jaf5/ZB93veGIViN5VKgw2AEA==
+"@biomejs/cli-linux-x64-musl@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-x64-musl/-/cli-linux-x64-musl-2.6.7.tgz#82e21d771477ddc57949f983eaf73eadc215298e"
+  integrity sha512-+AOQyCsPR4nH5L4Hjzp8T0iaHm4UxY3unjL/KUJKc/8ziLnbkbmL3adtWmQW5ERB1zi6LRA1fsjaSuf/xGnLaQ==
 
-"@biomejs/cli-linux-x64@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-x64/-/cli-linux-x64-2.6.5.tgz#eae1caeceed433402aee81d4e6fcf3119398e344"
-  integrity sha512-e6/WMSN/+FhH+ZOoBevps/euxFQmv6BXqYNuTn1+ITR6O4XYFjHF5PeVSNZnjkgSYmvhcDkfepSX5lXczMijGA==
+"@biomejs/cli-linux-x64@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-x64/-/cli-linux-x64-2.6.7.tgz#d1d3a820fa695ff6bb0121d6759c7bef5af4e19a"
+  integrity sha512-VpHQ33CPNYrlIn0vyDdRS1KUlS3AiM17FiyEE2gwU000NwzyY4MgjzVHEv2KrmMb5D9Ksm3gFkwg+IOx/ULJNQ==
 
-"@biomejs/cli-win32-arm64@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-arm64/-/cli-win32-arm64-2.6.5.tgz#3ac1fe3bd4d2afeff84ab2cab0aa83ab56a765dc"
-  integrity sha512-uBbfpdR/cH5up1iRJFGAPP97xKMzrgMs685CSrY7NM+Q4Unw7chY0o3JulEvJdmU6c6hGQxwqotMq7DDH0DzxA==
+"@biomejs/cli-win32-arm64@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-arm64/-/cli-win32-arm64-2.6.7.tgz#b064de95ba1560a611206f13d3bd8d4f7ef1d6b8"
+  integrity sha512-2nLivZfgcGMIXP/bI8w1FZP5JE2MetP+XZInyMQ7SvJBKlDoGrm/nRjN7uUi9dOaaSlpbRWkHSfb7PqcQR3nXg==
 
-"@biomejs/cli-win32-x64@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-x64/-/cli-win32-x64-2.6.5.tgz#c6288bdce017f864e753d38e4a7e69dafaaa7e4e"
-  integrity sha512-07LaCeN9vvmbAAMOMsUjMfL5UbsCDkvVeyMJIgwNRc0xYqhizBGkjVzx05LYEwCXl2AiHcdzqVPR4IOYAsI1QQ==
+"@biomejs/cli-win32-x64@2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-x64/-/cli-win32-x64-2.6.7.tgz#3e7ddfc4dcb742b33058c60ec74f41d4cd249e69"
+  integrity sha512-uYfH+n+IAtVz3lh7m6JxdjxfJ3WCvAJDE3spHIUbU955V42oKymlhiQiu92fAhXZb7KOjvRcrfImySQbc1MFFg==
 
 "@emnapi/core@1.11.3":
   version "1.11.3"
